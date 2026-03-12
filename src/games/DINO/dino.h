@@ -1,0 +1,4 @@
+
+
+void DinoInit();
+void DinoUpdate();

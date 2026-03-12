@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Soumyadeep Das",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp1",
+      "top": 172.06,
+      "left": 110.84,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 60,
+      "left": 106.23,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": 114.6,
+      "left": -13.8,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp1:GND.1", "oled1:GND", "black", [ "h-153.45", "v-316.8", "h182.4" ] ],
+    [ "oled1:SCL", "esp1:23", "blue", [ "v-38.4", "h86.7", "v105.6" ] ],
+    [ "oled1:SDA", "esp1:22", "green", [ "v-19.2", "h105.67", "v19.2" ] ],
+    [ "esp1:GND.1", "bz1:1", "black", [ "h-38.25", "v76.8", "h230.4" ] ],
+    [ "bz1:2", "esp1:21", "red", [ "v19.2", "h-96.4", "v-105.6" ] ],
+    [ "oled1:VCC", "esp1:5V", "red", [ "v-67.2", "h-201.45", "v374.4" ] ],
+    [ "joystick1:VCC", "esp1:3V3", "red", [ "v57.6", "h86.4", "v-86.4" ] ],
+    [ "joystick1:VERT", "esp1:15", "blue", [ "v182.4", "h220.8", "v-67.2" ] ],
+    [ "joystick1:HORZ", "esp1:2", "orange", [ "v163.2", "h201.6", "v-9.6" ] ],
+    [ "joystick1:SEL", "esp1:4", "gold", [ "v201.6", "h220.8", "v-115.2" ] ],
+    [ "joystick1:GND", "esp1:GND.2", "black", [ "v-67.2", "h172.8", "v38.4" ] ]
+  ],
+  "dependencies": {}
+}
