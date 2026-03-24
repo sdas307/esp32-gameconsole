@@ -2,7 +2,7 @@
 #include "hardware.h"
 #include "paddle.h"
 #include "gamevariables.h"
-#include "inputs.h"
+#include "input.h"
 
 void ballObject(int16_t x, int16_t y, int16_t r)
 {
@@ -38,12 +38,12 @@ void highScore()
   display.setCursor(10, 40);
   display.print("RIGHT --> Exit");
 
-  if (BUTTON_LEFT()) // LEFT is pressed
+  if (leftPressed()) // LEFT is pressed
   {
     // Restart game from main menu
     pongGameState = PONG_MAIN_MENU;
   }
-  else if (BUTTON_RIGHT()) // RIGHT is pressed
+  else if (rightPressed()) // RIGHT is pressed
   {
     // For now, still go back to main menu
     pongGameState = PONG_MAIN_MENU;

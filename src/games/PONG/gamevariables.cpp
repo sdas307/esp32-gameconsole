@@ -1,5 +1,5 @@
 #include "gamevariables.h"
-#include "inputs.h"
+#include "input.h"
 
 /* Ball Data */
 int16_t ballX = 62; // 128/2 - radius

@@ -1,7 +1,7 @@
 #include <Adafruit_GFX.h>
 #include <stdint.h>
 #include "hardware.h"
-#include "inputs.h"
+#include "input.h"
 #include "gamevariables.h"
 #include "Snake.h"
 #include "mainmenu.h"
@@ -57,19 +57,19 @@ void SnakeUpdate()
 
 void setSnakeDirection()
 {
-    if (BUTTON_LEFT() && direction != RIGHT)
+    if (leftPressed() && direction != RIGHT)
     {
         direction = LEFT;
     }
-    else if (BUTTON_RIGHT() && direction != LEFT)
+    else if (rightPressed() && direction != LEFT)
     {
         direction = RIGHT;
     }
-    else if (BUTTON_UP() && direction != DOWN)
+    else if (upPressed() && direction != DOWN)
     {
         direction = UP;
     }
-    else if (BUTTON_DOWN() && direction != UP)
+    else if (downPressed() && direction != UP)
     {
         direction = DOWN;
     }

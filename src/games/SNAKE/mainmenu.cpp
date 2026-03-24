@@ -1,7 +1,7 @@
 #include <Adafruit_GFX.h>
 #include <stdint.h>
 #include "hardware.h"
-#include "inputs.h"
+#include "input.h"
 #include "gamevariables.h"
 #include "mainmenu.h"
  
@@ -10,7 +10,7 @@ void snakeMainMenu()
     display.setTextSize(1);
     display.setTextColor(WHITE);
 
-    if (BUTTON_UP() || BUTTON_DOWN())
+    if (upPressed() || downPressed())
     {
         if (millis() - snakeLastDebounceTime > SNAKE_DEBOUNCE_DELAY)
         {
@@ -33,7 +33,7 @@ void snakeMainMenu()
     display.setCursor(SCREEN_WIDTH/2 - 15, SCREEN_HEIGHT/2 + 9);
     display.print("EXIT");
 
-    if (BUTTON_SELECT())
+    if (selectPressed())
     {
         gameState = PLAY;
     }

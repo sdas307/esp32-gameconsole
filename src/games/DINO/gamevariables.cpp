@@ -1,6 +1,6 @@
 #include "gamevariables.h"
 #include "hardware.h"
-#include "inputs.h"
+#include "input.h"
 #include "cactuslogic.h"
 #include "../../assets/games/dino/dino_sprites.h"
 
@@ -51,12 +51,12 @@ void drawDino()
 
 void dinoMove()
 {
-    if (BUTTON_UP() && dinoPosY == groundLevel)
+    if (upPressed() && dinoPosY == groundLevel)
     {
         dinoVelY = -(jumpStrength);
     }
 
-    if (BUTTON_DOWN() && dinoPosY != groundLevel)
+    if (downPressed() && dinoPosY != groundLevel)
     {
         dinoVelY = jumpStrength;
     }

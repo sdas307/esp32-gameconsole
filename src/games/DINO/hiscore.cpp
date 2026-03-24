@@ -1,11 +1,11 @@
 #include "hiscore.h"
 #include "gamevariables.h"
 #include "hardware.h"
-#include "inputs.h"
+#include "input.h"
 
 void hiScore()
 {
-    if (BUTTON_SELECT())
+    if (selectPressed())
         dinoGameState = PLAY;
 
     display.setTextSize(1);

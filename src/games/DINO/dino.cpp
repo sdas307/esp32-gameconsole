@@ -1,6 +1,6 @@
 #include <Adafruit_GFX.h>
 #include "hardware.h"
-#include "inputs.h"
+#include "input.h"
 #include "gamevariables.h"
 #include "cactuslogic.h"
 #include "mainmenu.h"

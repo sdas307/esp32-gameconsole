@@ -4,7 +4,7 @@
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 #include "hardware.h"
-#include "inputs.h"
+#include "input.h"
 #include "paddle.h"
 #include "ball.h"
 #include "gamevariables.h"
@@ -42,14 +42,14 @@ void PongUpdate()
 
   if (pongGameState == PONG_PLAY)
   {
-    if (BUTTON_UP()) // UP direction
+    if (upPressed()) // UP direction
     {
       if (playerY > 0)
       {
         playerPaddle(playerX, playerY-=paddleSpeed, playerWidth, playerHeight);
       }
     }
-    else if (BUTTON_DOWN()) // DOWN direction
+    else if (downPressed()) // DOWN direction
     {
       if (playerY+playerHeight < 64)
       {

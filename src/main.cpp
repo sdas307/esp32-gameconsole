@@ -3,7 +3,8 @@
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 #include "hardware.h"
-#include "inputs.h"
+#include "display.h"
+#include "input.h"
 #include "assets/game icons/game_icons.h"
 #include "games/PONG/Pong.h"
 #include "games/SNAKE/Snake.h"
@@ -11,10 +12,10 @@
 
 int16_t selected = 0;
 
-bool leftPressed = false;
+bool currleftPressed = false;
 bool prevLeftPressed = false;
 
-bool rightPressed = false;
+bool currrightPressed = false;
 bool prevRightPressed = false;
 
 bool notSelected = true;
@@ -47,8 +48,6 @@ HOVERED_APP currentHover;
 APP_STATE currentState;
 GAME_SELECTED currentGameSelected;
 
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
 void setup()
 {
   Serial.begin(9600);
@@ -58,20 +57,9 @@ void setup()
   pinMode(JOY_SEL, INPUT_PULLUP);
   // pinMode(21, OUTPUT);
 
-  if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
-  {
-    Serial.println(F("SSD1306 allocation failed"));
-    for (;;);
-  }
-  
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(10, 10);
-  display.println("Starting...");
-  display.display();
-  delay(100);
-  display.clearDisplay();
+  initDisplay();
+  showStartupScreen();
+
 }
 
 void loop()
@@ -110,7 +98,7 @@ void HomeManager()
   display.setCursor(10, 24);
   display.print("Settings");
 
-  if (BUTTON_DOWN()) // DOWN button pressed
+  if (downPressed()) // DOWN button pressed
   {
     if (currentHover == HOVERED_SETTINGS)
       currentHover = HOVERED_GAMES;
@@ -118,7 +106,7 @@ void HomeManager()
       currentHover = (HOVERED_APP) (currentHover + 1);
   }
 
-  if (BUTTON_UP()) // UP button pressed
+  if (upPressed()) // UP button pressed
   {
     if (currentHover == HOVERED_GAMES)
       currentHover = HOVERED_SETTINGS;
@@ -131,7 +119,7 @@ void HomeManager()
   case HOVERED_GAMES: // Games
     display.drawRect(8, 8, 33, 11, WHITE);
 
-    if (BUTTON_SELECT())
+    if (selectPressed())
     {
       currentState = STATE_GAME;
     }
@@ -140,7 +128,7 @@ void HomeManager()
   case HOVERED_SETTINGS: // Settings
     display.drawRect(8, 22, 51, 11, WHITE);
 
-    if (BUTTON_SELECT())
+    if (selectPressed())
     {
       currentState = STATE_SETTINGS;
     }
@@ -161,26 +149,26 @@ void GameManager()
     display.drawBitmap(50, 11, epd_bitmap_pong_icon, 28, 36, WHITE);
     display.drawBitmap(90, 11, epd_bitmap_snake_icon, 28, 36, WHITE);
 
-    leftPressed = BUTTON_LEFT();
-    rightPressed = BUTTON_RIGHT();
+    currleftPressed = leftPressed();
+    currrightPressed = rightPressed();
 
-    if (rightPressed && !prevRightPressed && selected != 2)
+    if (currrightPressed && !prevRightPressed && selected != 2)
     {
       selected += 1;
       prevRightPressed = true;
     }
-    else if (rightPressed && !prevRightPressed)
+    else if (currrightPressed && !prevRightPressed)
     {
       selected = 0;
       prevRightPressed = true;
     }
 
-    if (leftPressed && !prevLeftPressed && selected != 0)
+    if (currleftPressed && !prevLeftPressed && selected != 0)
     {
       selected -= 1;
       prevLeftPressed = true;
     }
-    else if (leftPressed && !prevLeftPressed)
+    else if (currleftPressed && !prevLeftPressed)
     {
       selected = 2;
       prevLeftPressed = true;
@@ -191,7 +179,7 @@ void GameManager()
     {
     case 0:
       display.drawFastHLine(16, 48, 16, WHITE);
-      if (BUTTON_SELECT())
+      if (selectPressed())
       {
         notSelected = false;
         currentGameSelected = GAME_DINO;
@@ -200,7 +188,7 @@ void GameManager()
 
     case 1:
       display.drawFastHLine(55, 48, 19, WHITE);
-      if (BUTTON_SELECT())
+      if (selectPressed())
       {
         notSelected = false;
         currentGameSelected = GAME_PONG;
@@ -209,7 +197,7 @@ void GameManager()
 
     case 2:
       display.drawFastHLine(93, 48, 22, WHITE);
-      if (BUTTON_SELECT())
+      if (selectPressed())
       {
         notSelected = false;
         currentGameSelected = GAME_SNAKE;
@@ -220,8 +208,8 @@ void GameManager()
       break;
     }
 
-    prevLeftPressed = leftPressed;
-    prevRightPressed = rightPressed;
+    prevLeftPressed = currleftPressed;
+    prevRightPressed = currrightPressed;
   }
 
   if (currentGameSelected == GAME_PONG)
@@ -246,7 +234,7 @@ void SettingsManager()
   display.print("<-- Go Back -->");
   display.display();
 
-  if (BUTTON_LEFT() || BUTTON_RIGHT())
+  if (leftPressed() || rightPressed())
   {
     // Press LEFT or RIGHT to go back to homescreen
     currentState = STATE_HOME;

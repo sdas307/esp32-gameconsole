@@ -1,6 +1,6 @@
 #include "gamevariables.h"
 #include "hardware.h"
-#include "inputs.h"
+#include "input.h"
 
 void pongMainMenu()
 {
@@ -13,7 +13,7 @@ void pongMainMenu()
        128/2 = 64, 64 - 6+6+3 = 49, 49 - 4(padding) = 45
        64/2 = 32, 32 - 4 = 28, 28 - 4(padding) = 24 */
 
-    if ((BUTTON_UP()) || (BUTTON_DOWN())) // UP or DOWN button press
+    if ((upPressed()) || (downPressed())) // UP or DOWN button press
     {
       if (millis() - lastDebounceTime > DEBOUNCE_DELAY)
       {
@@ -33,7 +33,7 @@ void pongMainMenu()
 
     display.print("EXIT");
 
-    if (BUTTON_SELECT()) // SELECT button Press
+    if (selectPressed()) // SELECT button Press
     {
         pongGameState = PONG_PLAY;
     }
