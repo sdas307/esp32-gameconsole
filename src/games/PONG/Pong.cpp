@@ -1,7 +1,7 @@
 /* Buttons must use pull-up or pull-down resistors to ensure no flakey current flows through back to the system, causing disruption of the flow of logic.*/
 
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+// #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 #include "hardware.h"
 #include "input.h"

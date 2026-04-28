@@ -23,8 +23,8 @@
         extern Adafruit_SSD1306 display;
 
         // Wire Definition
-        #define SDA 22
-        #define SDL 23
+        #define SDA 22 //scl
+        #define SCL 23 //sda
 
         // Joystick Definition
         #define JOY_X 2
@@ -32,22 +32,22 @@
         #define JOY_SEL 4
 
     #elif defined(DEVICE_BUILD)
-    #include <Adafruit_SH110X.h>
-    extern Adafruit_SH1106G display;
+        #include <Adafruit_SH110X.h>
+        extern Adafruit_SH1106G display;
 
-    // Wire Definition
-    #define SDL 21
-    #define SCK 22
+        // Wire Definition
+        #define SDA 21
+        #define SCL 22
 
-    // Button Definition
-    #define BUTTON_UP 15
-    #define BUTTON_DOWN 23
-    #define BUTTON_LEFT 4
-    #define BUTTON_RIGHT 5
-    #define BUTTON_SEL 18
+        // Button Definition
+        #define BUTTON_UP 15
+        #define BUTTON_DOWN 23
+        #define BUTTON_LEFT 4
+        #define BUTTON_RIGHT 5
+        #define BUTTON_SEL 18
 
-    // Audio - Passive Buzzer
-    #define BUZZER 2
+        // Audio - Passive Buzzer
+        #define BUZZER 2
 
     #endif
 

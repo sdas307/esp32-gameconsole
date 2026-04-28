@@ -9,7 +9,7 @@
 
 bool isGameOver = false;
 
-void snakeInit()
+void SnakeInit()
 {
     snake[0] = {64, 32};
 }
@@ -25,7 +25,7 @@ void SnakeUpdate()
     {
         if (gameReset)
         {
-            snakeInit();
+            SnakeInit();
             gameReset = false;
         }
 
