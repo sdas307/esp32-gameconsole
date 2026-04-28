@@ -65,7 +65,7 @@ void loop()
   switch (currentState)
   {
     case STATE_HOME:
-      HomeManager(); // Has internal display.display()
+      HomeManager(); // Has internal display.display()??
       break;
     
     case STATE_GAME:
@@ -113,7 +113,7 @@ void HomeManager()
   switch (currentHover)
   {
   case HOVERED_GAMES: // Games
-    display.drawRect(8, 8, 33, 11, WHITE);
+    display.drawRect(8, 8, 33, 11, DISPLAY_WHITE);
 
     if (selectPressed())
     {
@@ -122,7 +122,7 @@ void HomeManager()
     break;
 
   case HOVERED_SETTINGS: // Settings
-    display.drawRect(8, 22, 51, 11, WHITE);
+    display.drawRect(8, 22, 51, 11, DISPLAY_WHITE);
 
     if (selectPressed())
     {
@@ -141,9 +141,9 @@ void GameManager()
   if (notSelected)
   {
     // Show Game Icons
-    display.drawBitmap(10, 11, epd_bitmap_dino_icon, 28, 36, WHITE);
-    display.drawBitmap(50, 11, epd_bitmap_pong_icon, 28, 36, WHITE);
-    display.drawBitmap(90, 11, epd_bitmap_snake_icon, 28, 36, WHITE);
+    display.drawBitmap(10, 11, epd_bitmap_dino_icon, 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(50, 11, epd_bitmap_pong_icon, 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(90, 11, epd_bitmap_snake_icon, 28, 36, DISPLAY_WHITE);
 
     currleftPressed = leftPressed();
     currrightPressed = rightPressed();
@@ -174,7 +174,7 @@ void GameManager()
     switch (selected)
     {
     case 0:
-      display.drawFastHLine(16, 48, 16, WHITE);
+      display.drawFastHLine(16, 48, 16, DISPLAY_WHITE);
       if (selectPressed())
       {
         notSelected = false;
@@ -183,7 +183,7 @@ void GameManager()
       break;
 
     case 1:
-      display.drawFastHLine(55, 48, 19, WHITE);
+      display.drawFastHLine(55, 48, 19, DISPLAY_WHITE);
       if (selectPressed())
       {
         notSelected = false;
@@ -192,7 +192,7 @@ void GameManager()
       break;
 
     case 2:
-      display.drawFastHLine(93, 48, 22, WHITE);
+      display.drawFastHLine(93, 48, 22, DISPLAY_WHITE);
       if (selectPressed())
       {
         notSelected = false;
