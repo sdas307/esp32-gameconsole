@@ -53,15 +53,7 @@ void setup()
   Serial.begin(9600);
   Serial.println("Hello, ESP32!");
 
-  #ifdef EMULATOR_BUILD
-    Wire.begin(SDA, SCL);
-    pinMode(JOY_SEL, INPUT_PULLUP);
-  #elif defined(DEVICE_BUILD)
-    Wire.begin(22, 23);
-    pinMode(BUTTON_SEL, INPUT_PULLUP);
-  // pinMode(21, OUTPUT);
-  #endif
-
+  initHardware();
   initDisplay();
   showStartupScreen();
 

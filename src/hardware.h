@@ -1,5 +1,5 @@
 #ifndef HARDWARE_H
-    #define HARDWARE_H
+#define HARDWARE_H
 
     #if !defined(EMULATOR_BUILD) && !defined(DEVICE_BUILD)
     #error "Define EMULATOR_BUILD or DEVICE_BUILD"
@@ -9,7 +9,9 @@
     #error "Only one build type allowed"
     #endif
 
-    // Common Definitions
+    void initHardware();
+
+    // ==== Common Definitions ====
     // OLED Definition
     #define SCREEN_WIDTH 128  
     #define SCREEN_HEIGHT 64  
@@ -23,8 +25,8 @@
         extern Adafruit_SSD1306 display;
 
         // Wire Definition
-        #define SDA 22 //scl
-        #define SCL 23 //sda
+        #define SDA 22
+        #define SCL 23
 
         // Joystick Definition
         #define JOY_X 2
