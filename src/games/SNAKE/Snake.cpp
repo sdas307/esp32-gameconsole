@@ -127,7 +127,7 @@ void drawSnake()
         if (snake[0].y > 64)
             snake[0].y = 0;
 
-        display.fillRoundRect(snake[i].x, snake[i].y, SEGMENT_SIZE, SEGMENT_SIZE, SEGMENT_RADIUS, WHITE);
+        display.fillRoundRect(snake[i].x, snake[i].y, SEGMENT_SIZE, SEGMENT_SIZE, SEGMENT_RADIUS, DISPLAY_WHITE);
     }
 }
 
@@ -186,7 +186,7 @@ void drawFood()
         toGenerate = false;
     }
 
-    display.fillCircle(foodX, foodY, foodRadius, WHITE);
+    display.fillCircle(foodX, foodY, foodRadius, DISPLAY_WHITE);
 }
 
 void destroyFood()

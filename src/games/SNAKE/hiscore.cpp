@@ -5,7 +5,7 @@
 void snakeHiScore()
 {
     display.setTextSize(1);
-    display.setTextColor(WHITE);
+    display.setTextColor(DISPLAY_WHITE);
 
     display.setCursor(SCREEN_WIDTH/2 - 55, SCREEN_HEIGHT/2 - 12);
     display.print("Your Score:");

@@ -8,7 +8,7 @@
 void dinoMainMenu()
 {
     display.setTextSize(1);
-    display.setTextColor(WHITE);
+    display.setTextColor(DISPLAY_WHITE);
 
     if (upPressed() || downPressed())
     {
@@ -21,11 +21,11 @@ void dinoMainMenu()
 
     if (dinoAlt == 1)
     {
-        display.drawRect(SCREEN_WIDTH/2 - 18, SCREEN_HEIGHT/2 - 6, 29, 12, WHITE);
+        display.drawRect(SCREEN_WIDTH/2 - 18, SCREEN_HEIGHT/2 - 6, 29, 12, DISPLAY_WHITE);
     }
     else if (dinoAlt == -1)
     {
-        display.drawRect(SCREEN_WIDTH/2 - 18, SCREEN_HEIGHT/2 + 6, 29, 12, WHITE);
+        display.drawRect(SCREEN_WIDTH/2 - 18, SCREEN_HEIGHT/2 + 6, 29, 12, DISPLAY_WHITE);
     }
 
     display.setCursor(SCREEN_WIDTH/2 - 15, SCREEN_HEIGHT/2 - 4);

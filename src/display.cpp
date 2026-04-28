@@ -25,7 +25,7 @@ void initDisplay()
 void showStartupScreen()
 {
     display.setTextSize(1);
-    display.setTextColor(WHITE);
+    display.setTextColor(DISPLAY_WHITE);
     
     display.setCursor(10, 10);
     display.println("Starting...");

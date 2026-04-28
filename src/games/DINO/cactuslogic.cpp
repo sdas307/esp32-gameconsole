@@ -18,12 +18,12 @@ static Cactus cactus;
 
 void drawCactusSmall(int16_t cactusX)
 {
-    display.drawBitmap(cactusX, cactusSmallPosY, epd_bitmap_cactus_small, 8, 14, WHITE);
+    display.drawBitmap(cactusX, cactusSmallPosY, epd_bitmap_cactus_small, 8, 14, DISPLAY_WHITE);
 }
 
 void drawCactusLarge(int16_t cactusX)
 {
-    display.drawBitmap(cactusX, cactusLargePosY, epd_bitmap_cactus_large, 8, 17, WHITE);
+    display.drawBitmap(cactusX, cactusLargePosY, epd_bitmap_cactus_large, 8, 17, DISPLAY_WHITE);
 }
 
 void drawCactus()

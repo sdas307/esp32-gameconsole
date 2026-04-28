@@ -1,6 +1,5 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-// #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 #include "hardware.h"
 #include "display.h"
@@ -87,7 +86,7 @@ void loop()
 void HomeManager()
 {
   display.setTextSize(1);
-  display.setTextColor(WHITE);
+  display.setTextColor(DISPLAY_WHITE);
 
   display.setCursor(10, 10);
   display.print("Games");

@@ -9,7 +9,7 @@ void hiScore()
         dinoGameState = PLAY;
 
     display.setTextSize(1);
-    display.setTextColor(WHITE);
+    display.setTextColor(DISPLAY_WHITE);
 
     display.setCursor(20, 20);
     display.print("Score:");

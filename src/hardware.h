@@ -17,12 +17,13 @@
     #define SCREEN_HEIGHT 64  
     #define OLED_RESET    -1  
     #define SCREEN_ADDRESS 0x3C  // For THIS model of the display
-    #define WHITE 1
+    // #define WHITE 1
 
     #ifdef EMULATOR_BUILD
 
         #include <Adafruit_SSD1306.h>
         extern Adafruit_SSD1306 display;
+        #define DISPLAY_WHITE SSD1306_WHITE
 
         // Wire Definition
         #define SDA 22
@@ -36,6 +37,7 @@
     #elif defined(DEVICE_BUILD)
         #include <Adafruit_SH110X.h>
         extern Adafruit_SH1106G display;
+        #define DISPLAY_WHITE SSH110X_WHITE
 
         // Wire Definition
         #define SDA 21
