@@ -2,6 +2,7 @@
 #include "hardware.h"
 #include <Arduino.h>
 
+#ifdef DEVICE_BUILD
 void initInput()
 {
     pinMode(BUTTON_UP, INPUT_PULLUP);
@@ -34,3 +35,4 @@ bool selectPressed()
 {
     return (digitalRead(BUTTON_SEL) == LOW);
 }
+#endif
