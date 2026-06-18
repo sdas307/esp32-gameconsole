@@ -6,3 +6,4 @@ extern const uint8_t PROGMEM bitmap_snake_icon[];
 extern const uint8_t PROGMEM bitmap_space_wars_icon[];
 extern const uint8_t PROGMEM bitmap_left_slider_arrow[];
 extern const uint8_t PROGMEM bitmap_right_slider_arrow[];
+extern const uint8_t* bitmap_games_icon[];

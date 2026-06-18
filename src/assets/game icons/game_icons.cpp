@@ -75,9 +75,10 @@ const uint8_t PROGMEM bitmap_right_slider_arrow[] = {
 
 
 // Array of all bitmaps for convenience. (Total bytes used to store images in PROGMEM = 480)
-// const int bitmap_allArray_LEN = 3;
-// const unsigned char* bitmap_allArray[3] = {
-// 	bitmap_dino_icon,
-// 	bitmap_pong_icon,
-// 	bitmap_snake_icon
-// };
+const uint8_t* bitmap_games_icon[4] =
+{
+	bitmap_dino_icon,
+	bitmap_pong_icon,
+	bitmap_snake_icon,
+	bitmap_space_wars_icon
+};

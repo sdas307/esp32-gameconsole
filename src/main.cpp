@@ -143,9 +143,9 @@ void GameManager()
   if (notSelected)
   {
     // Show Game Icons
-    display.drawBitmap(10, 11, bitmap_dino_icon, 28, 36, DISPLAY_WHITE);
-    display.drawBitmap(50, 11, bitmap_pong_icon, 28, 36, DISPLAY_WHITE);
-    display.drawBitmap(90, 11, bitmap_snake_icon, 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(10, 11, bitmap_games_icon[0], 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(50, 11, bitmap_games_icon[1], 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(90, 11, bitmap_games_icon[2], 28, 36, DISPLAY_WHITE);
     display.drawBitmap(1, 18, bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
     display.drawBitmap(SCREEN_WIDTH - 1 - 7, 18, bitmap_right_slider_arrow, 7, 14, DISPLAY_WHITE);
 
