@@ -1,0 +1,9 @@
+void SpaceWarsInit()
+{
+    
+}
+
+void SpaceWarsUpdate()
+{
+    
+}

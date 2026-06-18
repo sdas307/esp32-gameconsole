@@ -8,13 +8,15 @@
 #include "games/PONG/Pong.h"
 #include "games/SNAKE/Snake.h"
 #include "games/DINO/dino.h"
+#include "games/SPACEWARS/spacewars.h"
 
 int16_t selected = 0;
 
-bool currleftPressed = false;
+bool currLeftPressed = false;
 bool prevLeftPressed = false;
+bool upOrDownPressed = false;
 
-bool currrightPressed = false;
+bool currRightPressed = false;
 bool prevRightPressed = false;
 
 bool notSelected = true;
@@ -40,7 +42,8 @@ enum GAME_SELECTED
   GAME_NONE,
   GAME_PONG,
   GAME_SNAKE,
-  GAME_DINO
+  GAME_DINO,
+  GAME_SPACE_WARS
 };
 
 HOVERED_APP currentHover;
@@ -55,7 +58,6 @@ void setup()
   initHardware();
   initDisplay();
   showStartupScreen();
-
 }
 
 void loop()
@@ -64,20 +66,20 @@ void loop()
 
   switch (currentState)
   {
-    case STATE_HOME:
-      HomeManager(); // Has internal display.display()??
-      break;
-    
-    case STATE_GAME:
-      GameManager();
-      break;
+  case STATE_HOME:
+    HomeManager(); // Has internal display.display()??
+    break;
 
-    case STATE_SETTINGS:
-      SettingsManager();
-      break;
-    
-    default:
-      break;
+  case STATE_GAME:
+    GameManager();
+    break;
+
+  case STATE_SETTINGS:
+    SettingsManager();
+    break;
+
+  default:
+    break;
   }
 
   display.display();
@@ -99,7 +101,7 @@ void HomeManager()
     if (currentHover == HOVERED_SETTINGS)
       currentHover = HOVERED_GAMES;
     else
-      currentHover = (HOVERED_APP) (currentHover + 1);
+      currentHover = (HOVERED_APP)(currentHover + 1);
   }
 
   if (upPressed()) // UP button pressed
@@ -107,7 +109,7 @@ void HomeManager()
     if (currentHover == HOVERED_GAMES)
       currentHover = HOVERED_SETTINGS;
     else
-      currentHover = (HOVERED_APP) (currentHover - 1);
+      currentHover = (HOVERED_APP)(currentHover - 1);
   }
 
   switch (currentHover)
@@ -129,7 +131,7 @@ void HomeManager()
       currentState = STATE_SETTINGS;
     }
     break;
-  
+
   default:
     break;
   }
@@ -144,32 +146,40 @@ void GameManager()
     display.drawBitmap(10, 11, epd_bitmap_dino_icon, 28, 36, DISPLAY_WHITE);
     display.drawBitmap(50, 11, epd_bitmap_pong_icon, 28, 36, DISPLAY_WHITE);
     display.drawBitmap(90, 11, epd_bitmap_snake_icon, 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(1, 18, epd_bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
+    display.drawBitmap(SCREEN_WIDTH - 1 - 7, 18, epd_bitmap_right_slider_arrow, 7, 14, DISPLAY_WHITE);
 
-    currleftPressed = leftPressed();
-    currrightPressed = rightPressed();
+    currLeftPressed = leftPressed();
+    currRightPressed = rightPressed();
 
-    if (currrightPressed && !prevRightPressed && selected != 2)
+    if (currRightPressed && !prevRightPressed && selected != 3)
     {
       selected += 1;
       prevRightPressed = true;
     }
-    else if (currrightPressed && !prevRightPressed)
+    else if (currRightPressed && !prevRightPressed)
     {
       selected = 0;
       prevRightPressed = true;
     }
 
-    if (currleftPressed && !prevLeftPressed && selected != 0)
+    if (currLeftPressed && !prevLeftPressed && selected != 0)
     {
       selected -= 1;
       prevLeftPressed = true;
     }
-    else if (currleftPressed && !prevLeftPressed)
+    else if (currLeftPressed && !prevLeftPressed)
     {
-      selected = 2;
+      selected = 3;
       prevLeftPressed = true;
     }
 
+    if (selected == 3)
+    {
+      display.clearDisplay();
+      display.drawBitmap(10, 11, epd_bitmap_space_wars_icon, 28, 36, DISPLAY_WHITE);
+      display.drawBitmap(1, 18, epd_bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
+    }
 
     switch (selected)
     {
@@ -199,13 +209,22 @@ void GameManager()
         currentGameSelected = GAME_SNAKE;
       }
       break;
-    
+
+    case 3:
+      display.drawFastHLine(13, 48, 22, DISPLAY_WHITE);
+      if (selectPressed())
+      {
+        notSelected = false;
+        currentGameSelected = GAME_SPACE_WARS;
+      }
+      break;
+
     default:
       break;
     }
 
-    prevLeftPressed = currleftPressed;
-    prevRightPressed = currrightPressed;
+    prevLeftPressed = currLeftPressed;
+    prevRightPressed = currRightPressed;
   }
 
   if (currentGameSelected == GAME_PONG)
@@ -219,6 +238,10 @@ void GameManager()
   else if (currentGameSelected == GAME_DINO)
   {
     DinoUpdate();
+  }
+  else if (currentGameSelected == GAME_SPACE_WARS)
+  {
+    SpaceWarsUpdate();
   }
 }
 

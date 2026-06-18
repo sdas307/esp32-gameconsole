@@ -1,0 +1,4 @@
+
+
+void SpaceWarsInit();
+void SpaceWarsUpdate();
