@@ -32,18 +32,18 @@ void drawGround()
 void drawDino()
 {
     if (dinoPosY != groundLevel)
-        display.drawBitmap(dinoPosX, dinoPosY, epd_bitmap_dino0, 16, 18, WHITE);
+        display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino0, 16, 18, WHITE);
     else
     {
         if (dinoFrameAlt == 1)
         {
-            display.drawBitmap(dinoPosX, dinoPosY, epd_bitmap_dino1, 16, 18, WHITE);
+            display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino1, 16, 18, WHITE);
             dinoFrameAlt *= -1;
         }
 
         else if (dinoFrameAlt == -1)
         {
-            display.drawBitmap(dinoPosX, dinoPosY, epd_bitmap_dino2, 16, 18, WHITE);
+            display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino2, 16, 18, WHITE);
             dinoFrameAlt *= -1;
         }
     }

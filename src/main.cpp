@@ -143,11 +143,11 @@ void GameManager()
   if (notSelected)
   {
     // Show Game Icons
-    display.drawBitmap(10, 11, epd_bitmap_dino_icon, 28, 36, DISPLAY_WHITE);
-    display.drawBitmap(50, 11, epd_bitmap_pong_icon, 28, 36, DISPLAY_WHITE);
-    display.drawBitmap(90, 11, epd_bitmap_snake_icon, 28, 36, DISPLAY_WHITE);
-    display.drawBitmap(1, 18, epd_bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
-    display.drawBitmap(SCREEN_WIDTH - 1 - 7, 18, epd_bitmap_right_slider_arrow, 7, 14, DISPLAY_WHITE);
+    display.drawBitmap(10, 11, bitmap_dino_icon, 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(50, 11, bitmap_pong_icon, 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(90, 11, bitmap_snake_icon, 28, 36, DISPLAY_WHITE);
+    display.drawBitmap(1, 18, bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
+    display.drawBitmap(SCREEN_WIDTH - 1 - 7, 18, bitmap_right_slider_arrow, 7, 14, DISPLAY_WHITE);
 
     currLeftPressed = leftPressed();
     currRightPressed = rightPressed();
@@ -177,8 +177,8 @@ void GameManager()
     if (selected == 3)
     {
       display.clearDisplay();
-      display.drawBitmap(10, 11, epd_bitmap_space_wars_icon, 28, 36, DISPLAY_WHITE);
-      display.drawBitmap(1, 18, epd_bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
+      display.drawBitmap(10, 11, bitmap_space_wars_icon, 28, 36, DISPLAY_WHITE);
+      display.drawBitmap(1, 18, bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
     }
 
     switch (selected)
