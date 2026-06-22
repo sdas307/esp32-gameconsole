@@ -1,3 +1,5 @@
+#include "spacewars.h"
+
 void SpaceWarsInit()
 {
     

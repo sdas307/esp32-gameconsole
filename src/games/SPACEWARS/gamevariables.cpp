@@ -1,19 +1,19 @@
 #include "gamevariables.h"
 #include "hardware.h"
 #include "input.h"
-#include "../../assets/games/dino/dino_sprites.h"
+#include "../../assets/games/spacewars/space_wars_sprites.h"
 
 SPACE_WARS_GAME_STATE spaceWarsGameState;
 
 int16_t spaceWarsFrameAlt = 1;
-float spaceWarsgroundLevel = 39; // At Dino's Y=0
+float bottomPadding = SCREEN_HEIGHT - 4; // At Spaceship's y=0
 
-/* Dino Initial Position */
-float spaceshipPosX = 16;
-float spaceshipPosY = 39;
+/* Spaceship Initial Position */
+float spaceshipPosX = 12;
+float spaceshipPosY = 26;
 float spaceshipVelY = 0;
-float spaceshipJumpStrength = 8;
-float spaceGravity = 1.1;
+float spaceshipMoveStrength = 8;
+// float spaceGravity = 1.1;
 
 int16_t spaceWarsgameSpeed = 5;
 unsigned long spaceWarsLastUpdate = 0;
@@ -30,19 +30,19 @@ void drawSpace()
 
 void drawSpaceship()
 {
-    if (dinoPosY != groundLevel)
-        display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino0, 16, 18, WHITE);
+    if (spaceshipPosY != bottomPadding)
+        display.drawBitmap(spaceshipPosX, spaceshipPosY, bitmap_spaceship0, 16, 18, WHITE);
     else
     {
         if (spaceWarsFrameAlt == 1)
         {
-            display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino1, 16, 18, WHITE);
+            display.drawBitmap(spaceshipPosX, spaceshipPosY, bitmap_spaceship1, 16, 18, WHITE);
             spaceWarsFrameAlt *= -1;
         }
 
         else if (spaceWarsFrameAlt == -1)
         {
-            display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino2, 16, 18, WHITE);
+            display.drawBitmap(spaceshipPosX, spaceshipPosY, bitmap_spaceship1, 16, 18, WHITE);
             spaceWarsFrameAlt *= -1;
         }
     }
@@ -50,26 +50,26 @@ void drawSpaceship()
 
 void spaceshipMove()
 {
-    if (upPressed() && dinoPosY == groundLevel)
+    if (upPressed())
     {
-        dinoVelY = -(jumpStrength);
+        spaceshipVelY = -(spaceshipMoveStrength);
     }
 
-    if (downPressed() && dinoPosY != groundLevel)
+    if (downPressed())
     {
-        dinoVelY = jumpStrength;
+        spaceshipVelY = spaceshipMoveStrength;
     }
     
-    dinoVelY += gravity;
+    // spaceshipVelY += spaceGravity;
 
-    dinoPosY += dinoVelY;
+    spaceshipPosY += spaceshipVelY;
 
-    /* Clamp Dino on the ground upon feet touching */
-    if (dinoPosY >= groundLevel)
-    {
-        dinoPosY = groundLevel;
-        dinoVelY = 0;
-    }
+    // /* Clamp Spaceship on the ground upon feet touching */
+    // if (spaceshipPosY >= bottomPadding)
+    // {
+    //     spaceshipPosY = bottomPadding;
+    //     spaceshipVelY = 0;
+    // }
 
 }
 
@@ -83,13 +83,13 @@ void spaceWarsDrawScore()
 
     if (now - spaceWarsLastUpdate >= 100)
     {
-        score++;
+        spaceWarsScore++;
     }
 
     // Update scoreText to have a padding of 5 0's
-    sprintf(scoreText, "%05d", score);
+    sprintf(spaceWarsScoreText, "%05d", spaceWarsScore);
 
-    display.print(scoreText);
+    display.print(spaceWarsScoreText);
 }
 
 bool spaceWarsCheckCollision()

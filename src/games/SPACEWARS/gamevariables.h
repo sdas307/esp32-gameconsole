@@ -1,7 +1,5 @@
 #include <stdint.h>
 
-#define MAX_DINO_JUMP_HEIGHT 10
-
 /* Enum Definitions */
 enum SPACE_WARS_GAME_STATE
 {
