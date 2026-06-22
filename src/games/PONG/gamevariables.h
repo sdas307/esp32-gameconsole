@@ -1,5 +1,5 @@
-#ifndef GAMEVARIABLES_H
-#define GAMEVARIABLES_H
+#ifndef PONG_GAMEVARIABLES_H
+#define PONG_GAMEVARIABLES_H
 
 #include <stdint.h>
 #include "hardware.h"

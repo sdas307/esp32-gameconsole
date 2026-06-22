@@ -1,5 +1,5 @@
-#ifndef BALL_H
-#define BALL_H
+#ifndef PONG_BALL_H
+#define PONG_BALL_H
 
 #include <stdint.h>
 

@@ -1,4 +1,4 @@
-#include "space_wars_sprites.h"
+#include "spacewars_sprites.h"
 
 // /* Bitmap Spaceship0, 13x14px */
 // const uint8_t PROGMEM bitmap_spaceship0[] = {

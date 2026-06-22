@@ -1,3 +1,6 @@
+#ifndef DINO_CACTUSLOGIC_H
+#define DINO_CACTUSLOGIC_H
+
 #include <stdint.h>
 
 /* Enums */
@@ -23,3 +26,5 @@ void resetCactus();
 bool cactusIsActive();
 int16_t cactusGetX();
 CactusType cactusGetType();
+
+#endif

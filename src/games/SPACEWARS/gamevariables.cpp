@@ -1,11 +1,10 @@
 #include "gamevariables.h"
 #include "hardware.h"
 #include "input.h"
-#include "../../assets/games/spacewars/space_wars_sprites.h"
+#include "../../assets/games/spacewars/spacewars_sprites.h"
 
 SPACE_WARS_GAME_STATE spaceWarsGameState;
 
-int16_t spaceWarsFrameAlt = 1;
 float bottomPadding = SCREEN_HEIGHT - 4; // At Spaceship's y=0
 
 Spaceship spaceship =

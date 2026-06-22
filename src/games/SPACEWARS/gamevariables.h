@@ -1,21 +1,28 @@
-#ifndef GAMEVARIABLES_H
-#define GAMEVARIABLES_H
+#ifndef SPACEWARS_GAMEVARIABLES_H
+#define SPACEWARS_GAMEVARIABLES_H
 
 #include <stdint.h>
 
 #define SPACESHIP_WIDTH 13
 #define SPACESHIP_HEIGHT 14
 
+/** Represents a Spaceship object. */
 typedef struct
 {
+    /** X position of the spaceship in pixels. */
     int16_t x;
+
+    /** Y position of the spaceship in pixels. */
     int16_t y;
+
+    /** Horizontal movement speed in pixels per update. */
     int16_t speed;
 } Spaceship;
 
 extern Spaceship spaceship;
 
 /* Enum Definitions */
+
 enum SPACE_WARS_GAME_STATE
 {
     PLAY,
@@ -24,7 +31,6 @@ enum SPACE_WARS_GAME_STATE
 
 extern SPACE_WARS_GAME_STATE spaceWarsGameState;
 
-extern int16_t spaceWarsFrameAlt;
 extern float bottomPadding;
 
 // extern float spaceshipPosX;
@@ -37,10 +43,22 @@ extern uint16_t score;
 extern char scoreText[];
 
 /* Function Signatures */
+
 void drawScore();
 void drawGround();
-void drawSpaceship(const Spaceship* ship);
-void spaceshipMove(Spaceship* );
+
+/**
+ * Draws the spaceship at its current position.
+ @param ship Spaceship to draw
+ */
+void drawSpaceship(const Spaceship *ship);
+
+/**
+ * Updates the spaceship's position (x values).
+ @param ship Spaceship to update
+ */
+void spaceshipMove(Spaceship *ship);
+
 bool checkCollision();
 
 #endif

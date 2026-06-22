@@ -1,3 +1,6 @@
+#ifndef SNAKE_GAMEVARIABLES_H
+#define SNAKE_GAMEVARIABLES_H
+
 #include <stdint.h>
 
 #define SNAKE_WIDTH 8
@@ -58,5 +61,14 @@ extern bool foodEaten;
 extern bool gameReset;
 extern bool prevSelectState;
 
+/**
+ * Timestamp (in milliseconds) of the snake's most recent movement.
+ */
 extern unsigned long lastMove;
+
+/**
+ * Time intervals (in milliseconds) between snake movements.
+ */
 extern const unsigned long moveInterval;
+
+#endif

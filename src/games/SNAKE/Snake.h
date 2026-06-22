@@ -1,3 +1,5 @@
+#ifndef SNAKE_H
+#define SNAKE_H
 
 /* Function Definitions */
 void setSnakeDirection();
@@ -13,3 +15,5 @@ void destroyFood();
 // Main Functions
 void SnakeInit();
 void SnakeUpdate();
+
+#endif

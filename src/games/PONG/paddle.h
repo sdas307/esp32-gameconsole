@@ -1,5 +1,5 @@
-#ifndef PADDLE_H
-#define PADDLE_H
+#ifndef PONG_PADDLE_H
+#define PONG_PADDLE_H
 
 #include <stdint.h>
 

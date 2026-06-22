@@ -1,3 +1,6 @@
+#ifndef DINO_GAMEVARIABLES_H
+#define DINO_GAMEVARIABLES_H
+
 #include <stdint.h>
 
 #define MAX_DINO_JUMP_HEIGHT 10
@@ -30,3 +33,5 @@ void drawGround();
 void drawDino();
 void dinoMove();
 bool checkCollision();
+
+#endif
