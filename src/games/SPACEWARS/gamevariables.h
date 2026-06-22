@@ -1,5 +1,8 @@
 #include <stdint.h>
 
+#define SPACESHIP_WIDTH 13
+#define SPACESHIP_HEIGHT 14
+
 /* Enum Definitions */
 enum SPACE_WARS_GAME_STATE
 {
@@ -10,13 +13,12 @@ enum SPACE_WARS_GAME_STATE
 extern SPACE_WARS_GAME_STATE spaceWarsGameState;
 
 extern int16_t spaceWarsFrameAlt;
-extern float groundLevel;
+extern float bottomPadding;
 
-extern float dinoPosX;
-extern float dinoPosY;
-extern float dinoVelY;
+extern float spaceshipPosX;
+extern float spaceshipPosY;
+extern float spaceshipVelX;
 extern float jumpStrength;
-extern float gravity;
 
 extern int16_t gameSpeed;
 extern uint16_t score;

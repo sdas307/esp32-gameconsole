@@ -9,6 +9,15 @@ DINO_GAME_STATE dinoGameState;
 int16_t dinoFrameAlt = 1;
 float groundLevel = 39; // At Dino's Y=0
 
+/*
+DinoY = 39
+   _
+  | |
+  ---
+  | |
+  __________________Ground (AbsoluteValue) = (DinoY + DinoHeight)
+*/
+
 /* Dino Initial Position */
 float dinoPosX = 16;
 float dinoPosY = 39;
@@ -82,9 +91,10 @@ void drawScore()
     display.setTextSize(1);
     display.setTextColor(WHITE);
 
-    if (now - lastUpdate >= 100)
+    if (now - lastUpdate >= 50)
     {
         score++;
+        lastUpdate = now;
     }
 
     // Update scoreText to have a padding of 5 0's
