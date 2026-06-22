@@ -8,12 +8,19 @@ SPACE_WARS_GAME_STATE spaceWarsGameState;
 int16_t spaceWarsFrameAlt = 1;
 float bottomPadding = SCREEN_HEIGHT - 4; // At Spaceship's y=0
 
-/* Spaceship Initial Position */
-float spaceshipPosX = (SCREEN_WIDTH/2) - BITMAP_SPACESHIP_WIDTH;
-float spaceshipPosY = (SCREEN_HEIGHT - BITMAP_SPACESHIP_HEIGHT) - 1;
-float spaceshipVelX = 0;
-float spaceshipMoveStrength = 2;
-// float spaceGravity = 1.1;
+Spaceship spaceship =
+{
+    .x = (SCREEN_WIDTH/2) - BITMAP_SPACESHIP_WIDTH,
+    .y = (SCREEN_HEIGHT - BITMAP_SPACESHIP_HEIGHT) - 1,
+    .speed = 2
+};
+
+// /* Spaceship Initial Position */
+// float spaceshipPosX = (SCREEN_WIDTH/2) - BITMAP_SPACESHIP_WIDTH;
+// float spaceshipPosY = (SCREEN_HEIGHT - BITMAP_SPACESHIP_HEIGHT) - 1;
+// float spaceshipVelX = 0;
+// float spaceshipMoveStrength = 2;
+
 
 int16_t spaceWarsgameSpeed = 5;
 unsigned long spaceWarsLastUpdate = 0;
@@ -28,47 +35,22 @@ void drawSpace()
     display.drawLine(0, 57, 128, 57, WHITE);
 }
 
-void drawSpaceship()
+void drawSpaceship(const Spaceship* ship)
 {
-    // unsigned long now = millis();
-    // if (now - spaceWarsLastUpdate >= 500)
-    // {
-    //     spaceWarsFrameAlt *= -1;
-    //     spaceWarsLastUpdate = now;
-    // }
-
-    // if (spaceWarsFrameAlt == 1)
-    display.drawBitmap(spaceshipPosX, spaceshipPosY, bitmap_spaceship, 14, 13, WHITE);
-
-    // else if (spaceWarsFrameAlt == -1)
-    //     display.drawBitmap(spaceshipPosX, spaceshipPosY, bitmap_spaceship1, 13, 14, WHITE);
+    display.drawBitmap(ship->x, ship->y, bitmap_spaceship, 14, 13, WHITE);
 }
 
-void spaceshipMove()
+void spaceshipMove(Spaceship* ship)
 {
     if (leftPressed())
     {
-        // spaceshipVelX = -(spaceshipMoveStrength);
-        spaceshipPosX -= spaceshipMoveStrength;
+        ship->x -= ship->speed;
     }
 
     if (rightPressed())
     {
-        // spaceshipVelX = spaceshipMoveStrength;
-        spaceshipPosX += spaceshipMoveStrength;
+        ship->x += ship->speed;
     }
-    
-    // spaceshipVelY += spaceGravity;
-
-    // spaceshipPosX += spaceshipVelX;
-
-    // /* Clamp Spaceship on the ground upon feet touching */
-    // if (spaceshipPosY >= bottomPadding)
-    // {
-    //     spaceshipPosY = bottomPadding;
-    //     spaceshipVelY = 0;
-    // }
-
 }
 
 void spaceWarsDrawScore()

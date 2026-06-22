@@ -7,8 +7,9 @@
 
 void SpaceWarsInit()
 {
-    spaceshipPosX = (SCREEN_WIDTH / 2) - SPACESHIP_WIDTH;
-    spaceshipPosY = (SCREEN_HEIGHT - SPACESHIP_HEIGHT) - 4;
+    spaceship.x = (SCREEN_WIDTH / 2) - SPACESHIP_WIDTH;
+    spaceship.y = (SCREEN_HEIGHT - SPACESHIP_HEIGHT) - 4;
+    spaceship.speed = 2;
 }
 
 void SpaceWarsUpdate()
@@ -16,8 +17,8 @@ void SpaceWarsUpdate()
     switch (spaceWarsGameState)
     {
     case PLAY:
-        spaceshipMove();
-        drawSpaceship();
+        spaceshipMove(&spaceship);
+        drawSpaceship(&spaceship);
         break;
 
     case HI_SCORE:
