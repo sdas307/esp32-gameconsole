@@ -4,7 +4,7 @@
 #include "gamevariables.h"
 #include "input.h"
 
-void ballObject(int16_t x, int16_t y, int16_t r)
+void drawBall(int16_t x, int16_t y, int16_t r)
 {
   display.fillCircle(x, y, ballRadius, 1);
 }

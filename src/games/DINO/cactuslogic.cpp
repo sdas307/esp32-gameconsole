@@ -97,17 +97,17 @@ void resetCactus(void)
 
 /* Public Queries (Getters) */
 
-bool cactusIsActive()
+bool cactusIsActive(void)
 {
     return cactus.active;
 }
 
-int16_t cactusGetX()
+int16_t cactusGetX(void)
 {
     return cactus.x;
 }
 
-CactusType cactusGetType()
+CactusType cactusGetType(void)
 {
     return cactus.type;
 }

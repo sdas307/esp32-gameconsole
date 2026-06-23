@@ -15,7 +15,7 @@ void DinoInit(void)
     // dinoPosX = 16;
     // dinoPosY = 39;
 
-    spawnDino();
+    resetDino();
 
     // cactusSmallPosX = 128;
     // cactusSmallPosY = 43;
@@ -30,13 +30,13 @@ void DinoUpdate(void)
 {
 
     state_change:
-    if (dinoGameState == HI_SCORE)
+    if (dinoGameState == DINO_HI_SCORE)
     {
         DinoInit();
         hiScore();
     }
 
-    if (dinoGameState == PLAY)
+    if (dinoGameState == DINO_PLAY)
     {
         /* Update game-variables */
         dinoMove();
@@ -46,13 +46,13 @@ void DinoUpdate(void)
         if (checkCollision())
         {
             delay(1000);
-            dinoGameState = HI_SCORE;
+            dinoGameState = DINO_HI_SCORE;
 
             goto state_change; // Exit out w/o drawing play screen
         }
         
         /* Draw current game state */
-        drawScore();
+        drawScoreHUD();
         drawGround();
         drawCactus();
         drawDino();

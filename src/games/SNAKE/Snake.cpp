@@ -16,12 +16,12 @@ void SnakeInit(void)
 
 void SnakeUpdate(void)
 {
-    if (gameState == MAIN_MENU)
+    if (gameState == SNAKE_MAIN_MENU)
     {
         snakeMainMenu();
     }
 
-    if (gameState == PLAY)
+    if (gameState == SNAKE_PLAY)
     {
         if (gameReset)
         {
@@ -31,7 +31,7 @@ void SnakeUpdate(void)
 
         setSnakeDirection();
 
-        // Simple choppy bit-by-bit moevement
+        // Simple choppy bit-by-bit moveement
         if (millis() - lastMove >= moveInterval)
         {
             moveSnake();
@@ -39,20 +39,17 @@ void SnakeUpdate(void)
         }
 
         if (checkSelfCollision())
-            gameState = HI_SCORE;
+            gameState = SNAKE_HI_SCORE;
 
         drawSnake();
         destroyFood();
         drawFood();
     }
 
-    if (gameState == HI_SCORE)
+    if (gameState == SNAKE_HI_SCORE)
     {
        snakeHiScore();
     }
-
-    // Update the scene
-    //display.display();
 }
 
 void setSnakeDirection(void)

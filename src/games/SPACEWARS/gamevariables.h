@@ -24,13 +24,17 @@ extern Spaceship enemy;
 
 /* Enum Definitions */
 
-enum SPACE_WARS_GAME_STATE
+/** Possible game states for Space Wars. */
+enum SPACEWARS_GAME_STATE
 {
-    PLAY,
-    HI_SCORE
+    /** Gameplay screen. */
+    SPACEWARS_PLAY,
+
+    /** High score screen. */
+    SPACEWARS_HI_SCORE
 };
 
-extern SPACE_WARS_GAME_STATE spaceWarsGameState;
+extern SPACEWARS_GAME_STATE spaceWarsGameState;
 
 extern float bottomPadding;
 
@@ -43,24 +47,11 @@ extern int16_t gameSpeed;
 extern uint16_t score;
 extern char scoreText[];
 
-/* Function Signatures */
 
+/**
+ * Draw screen boundary (Rectangle - Screen Width x Screen Height).
+ */
 void drawScreenBoundary(void);
-
-void enemyMove(Spaceship *enemy);
-
-/**
- * Draws the spaceship at its current position.
- @param ship Spaceship to draw
- */
-void drawSpaceship(const Spaceship *ship);
-
-/**
- * Updates the spaceship's position (x values).
- * Ensures the ship statys inside the screen.
- @param ship Spaceship to update
- */
-void spaceshipMove(Spaceship *ship);
 
 bool checkCollision(void);
 

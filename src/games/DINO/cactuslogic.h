@@ -26,19 +26,22 @@ extern const int16_t cactusLargePosY;
 // void drawCactusSmall(const Cactus *cactus);
 // void drawCactusLarge(const Cactus *cactus);
 
-/** Updates the cactus at its current position. */
+/** Update the cactus at its current position. */
 void updateCactus(void);
 
-/** Generates random values to determine the cactus type (SMALL or LARGE). */
+/** Generate random values to determine the cactus type (SMALL or LARGE). */
 CactusType randomCactusType(void);
 
-/** Spawns a new cactus. */
+/** Spawn a new cactus. */
 void drawCactus(void);
+
+/** Reset Cactus values. */
 void resetCactus(void);
 
 /* Getter Functions */
-bool cactusIsActive();
-int16_t cactusGetX();
-CactusType cactusGetType();
+
+bool cactusIsActive(void);
+int16_t cactusGetX(void);
+CactusType cactusGetType(void);
 
 #endif

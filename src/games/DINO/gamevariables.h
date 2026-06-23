@@ -6,10 +6,15 @@
 #define MAX_DINO_JUMP_HEIGHT 10
 
 /* Enum Definitions */
+
+/** Possible game states for Dino. */
 enum DINO_GAME_STATE
 {
-    PLAY,
-    HI_SCORE
+    /** Active gameplay. */
+    DINO_PLAY,
+
+    /** High score screen. */
+    DINO_HI_SCORE
 };
 
 extern DINO_GAME_STATE dinoGameState;
@@ -29,12 +34,22 @@ extern char scoreText[];
 
 /* Function Signatures */
 
-void spawnDino(void);
+/** Reset Dino game variables. */
+void resetDino(void);
 
-void drawScore(void);
+/** Draw score at the top left corner of the game screen. */
+void drawScoreHUD(void);
+
+/** Draw a straight line representing ground. */
 void drawGround(void);
+
+/** Draw Dino at its current position. */
 void drawDino(void);
+
+/** Update Dino position based on user input. */
 void dinoMove(void);
+
+/** Returns true on collision with cactus, or ground. */
 bool checkCollision(void);
 
 #endif

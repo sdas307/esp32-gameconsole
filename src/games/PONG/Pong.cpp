@@ -31,8 +31,6 @@ void PongInit(void)
 
 void PongUpdate(void)
 {
-  //display.clearDisplay();
-
   // Show main menu at first
   if (pongGameState == PONG_MAIN_MENU)
   {
@@ -46,25 +44,25 @@ void PongUpdate(void)
     {
       if (playerY > 0)
       {
-        playerPaddle(playerX, playerY-=paddleSpeed, playerWidth, playerHeight);
+        playerY -= paddleSpeed;
       }
     }
     else if (downPressed()) // DOWN direction
     {
-      if (playerY+playerHeight < 64)
+      if ((playerY + playerHeight) < 64)
       {
-        playerPaddle(playerX, playerY+=paddleSpeed, playerWidth, playerHeight);
+        playerY += paddleSpeed;
       }
     }
 
     // Screen Boundary
     display.drawRect(0, 0, 128, 64, 1);
 
-    playerPaddle(playerX, playerY, playerWidth, playerHeight);
+    drawPlayerPaddle(playerX, playerY, playerWidth, playerHeight);
 
-    enemyPaddle(enemyX, enemyY, enemyWidth, enemyHeight);
+    drawEnemyPaddle(enemyX, enemyY, enemyWidth, enemyHeight);
 
-    ballObject(ballX-=ballVelX, ballY-=ballVelY, ballRadius);
+    drawBall(ballX-=ballVelX, ballY-=ballVelY, ballRadius);
 
     enemyAI();
 
@@ -121,6 +119,4 @@ void PongUpdate(void)
   {
     highScore();
   }
-
-  //display.display();
 }

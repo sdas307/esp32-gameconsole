@@ -2,6 +2,8 @@
 #include "hardware.h"
 #include "input.h"
 #include "gamevariables.h"
+#include "spaceship.h"
+#include "enemy.h"
 #include "mainmenu.h"
 #include "hiscore.h"
 
@@ -16,7 +18,7 @@ void SpaceWarsUpdate(void)
 {
     switch (spaceWarsGameState)
     {
-    case PLAY:
+    case SPACEWARS_PLAY:
         drawScreenBoundary();
         enemyMove(&enemy);
         drawSpaceship(&enemy);
@@ -24,7 +26,7 @@ void SpaceWarsUpdate(void)
         drawSpaceship(&spaceship);
         break;
 
-    case HI_SCORE:
+    case SPACEWARS_HI_SCORE:
         break;
 
     default:

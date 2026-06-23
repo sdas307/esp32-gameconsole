@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 #ifdef DEVICE_BUILD
-void initInput()
+void initInput(void)
 {
     pinMode(BUTTON_UP, INPUT_PULLUP);
     pinMode(BUTTON_DOWN, INPUT_PULLUP);
@@ -12,26 +12,26 @@ void initInput()
     pinMode(BUTTON_SEL, INPUT_PULLUP);
 }
 
-bool upPressed()
+bool upPressed(void)
 {
     return (digitalRead(BUTTON_UP) == LOW);
 }
-bool downPressed()
+bool downPressed(void)
 {
     return (digitalRead(BUTTON_DOWN) == LOW);
 }
 
-bool leftPressed()
+bool leftPressed(void)
 {
     return (digitalRead(BUTTON_LEFT) == LOW);
 }
 
-bool rightPressed()
+bool rightPressed(void)
 {
     return (digitalRead(BUTTON_RIGHT) == LOW);
 }
 
-bool selectPressed()
+bool selectPressed(void)
 {
     return (digitalRead(BUTTON_SEL) == LOW);
 }

@@ -35,6 +35,6 @@ void snakeMainMenu(void)
 
     if (selectPressed())
     {
-        gameState = PLAY;
+        gameState = SNAKE_PLAY;
     }
 }

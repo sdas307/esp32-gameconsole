@@ -19,15 +19,20 @@ int16_t enemySpeed1 = 2;
 int16_t enemySpeed2 = 4;
 int16_t enemySpeed3 = 6;
 
-void playerPaddle(int16_t x, int16_t y, int16_t w, int16_t h)
+void drawPlayerPaddle(int16_t x, int16_t y, int16_t w, int16_t h)
 {
   display.fillRect(x, y, w, h, 1);
 }
 
-void enemyPaddle(int16_t x, int16_t y, int16_t w, int16_t h)
+void drawEnemyPaddle(int16_t x, int16_t y, int16_t w, int16_t h)
 {
   display.fillRect(x, y, w, h, 1);
 }
+
+// void drawEnemyPaddle(void)
+// {
+//   enemyPaddle(enemyX, enemyY, enemyWidth, enemyHeight);
+// }
 
 void enemyAI(void)
 {
@@ -35,7 +40,7 @@ void enemyAI(void)
    enemyY -= paddleSpeed, when the ball is in enemy court until ballY is reached...
    Three different levels, 1 -> slowly gets there, 2 -> faster, 3 -> perfect */
 
-  if (ballX >= SCREEN_WIDTH/2)
+  if (ballX >= SCREEN_WIDTH / 2)
   {
     // Ball is in enemy court
 
@@ -43,13 +48,13 @@ void enemyAI(void)
     {
       // Ball going upwards
       if (enemyY >= 0)
-        enemyPaddle(enemyX, enemyY-=enemySpeed1, enemyWidth, enemyHeight);
+        enemyY -= enemySpeed1;
     }
     else
     {
       // Ball going downwards
-      if (enemyY+enemyHeight <= SCREEN_HEIGHT)
-        enemyPaddle(enemyX, enemyY+=enemySpeed1, enemyWidth, enemyHeight);
+      if (enemyY + enemyHeight <= SCREEN_HEIGHT)
+        enemyY += enemySpeed1;
     }
   }
 }

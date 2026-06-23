@@ -181,6 +181,7 @@ void GameManager()
       display.drawBitmap(1, 18, bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
     }
 
+    // Draw a line under selected game name
     switch (selected)
     {
     case 0:

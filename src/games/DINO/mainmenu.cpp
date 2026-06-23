@@ -35,6 +35,6 @@ void dinoMainMenu(void)
 
     if (selectPressed())
     {
-        dinoGameState = PLAY;
+        dinoGameState = DINO_PLAY;
     }
 }

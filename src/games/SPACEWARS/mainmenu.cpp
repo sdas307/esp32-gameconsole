@@ -35,6 +35,6 @@ void spaceWarsMainMenu(void)
 
     if (selectPressed())
     {
-        spaceWarsGameState = PLAY;
+        spaceWarsGameState = SPACEWARS_PLAY;
     }
 }

@@ -3,7 +3,7 @@
 #include <Wire.h>
 #include <Arduino.h>
 
-void initDisplay()
+void initDisplay(void)
 {
     #ifdef EMULATOR_BUILD
         if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
@@ -22,7 +22,7 @@ void initDisplay()
     display.clearDisplay();
 }
 
-void showStartupScreen()
+void showStartupScreen(void)
 {
     display.setTextSize(1);
     display.setTextColor(DISPLAY_WHITE);

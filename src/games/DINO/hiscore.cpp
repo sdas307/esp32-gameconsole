@@ -6,7 +6,7 @@
 void hiScore(void)
 {
     if (selectPressed())
-        dinoGameState = PLAY;
+        dinoGameState = DINO_PLAY;
 
     display.setTextSize(1);
     display.setTextColor(DISPLAY_WHITE);

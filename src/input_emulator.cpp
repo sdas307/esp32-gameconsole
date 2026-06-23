@@ -2,32 +2,32 @@
 #include "hardware.h"
 #include <Arduino.h>
 
-void initInput()
+void initInput(void)
 {
 
 }
 
-bool upPressed()
+bool upPressed(void)
 {
     return (analogRead(JOY_Y) > IDLE_JOYSTICK_VALUE);
 }
 
-bool downPressed()
+bool downPressed(void)
 {
     return (analogRead(JOY_Y) < IDLE_JOYSTICK_VALUE);
 }
 
-bool leftPressed()
+bool leftPressed(void)
 {
     return (analogRead(JOY_X) > IDLE_JOYSTICK_VALUE);
 }
 
-bool rightPressed()
+bool rightPressed(void)
 {
     return (analogRead(JOY_X) < IDLE_JOYSTICK_VALUE);
 }
 
-bool selectPressed()
+bool selectPressed(void)
 {
     return (digitalRead(JOY_SEL) == LOW);
 }

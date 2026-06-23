@@ -57,7 +57,7 @@ void drawGround(void)
 {
     display.drawLine(0, 57, 128, 57, WHITE);
 }
-void spawnDino()
+void resetDino()
 {
     dino.x = 16;
     dino.y = 39;
@@ -111,7 +111,7 @@ void dinoMove(void)
 
 }
 
-void drawScore(void)
+void drawScoreHUD(void)
 {
     unsigned long now = millis();
 

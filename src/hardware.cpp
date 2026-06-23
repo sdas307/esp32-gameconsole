@@ -11,7 +11,7 @@
 #endif
 
 // ===== Hardware initialization =====
-void initHardware()
+void initHardware(void)
 {
     // I2C init (same for both now)
     Wire.begin(SDA, SCL);
