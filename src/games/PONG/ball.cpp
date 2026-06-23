@@ -10,20 +10,20 @@ void ballObject(int16_t x, int16_t y, int16_t r)
 }
 
 /* Levels are changed upon ball hit count */
-void level2()
+void level2(void)
 {
   // Cannot do ballVelX or ballVelY +=1 here
   ballVelX > 0 ?: 4, -4;
   ballVelY > 0 ?: 4, -4;
 }
-void level3()
+void level3(void)
 {
   // Cannot do ballVelX or ballVelY +=1 here
   ballVelX > 0 ?: 5, -5;
   ballVelY > 0 ?: 5, -5;
 }
 
-void highScore()
+void highScore(void)
 {
   display.setTextSize(1);
   display.setCursor(10, 10);

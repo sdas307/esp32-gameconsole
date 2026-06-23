@@ -21,8 +21,8 @@ extern int16_t enemySpeed2;
 extern int16_t enemySpeed3;
 
 /* Paddle Functions */
-void playerPaddle(int16_t, int16_t, int16_t, int16_t);
-void enemyPaddle(int16_t, int16_t, int16_t, int16_t);
-void enemyAI();
+void playerPaddle(int16_t x, int16_t y, int16_t w, int16_t h);
+void enemyPaddle(int16_t x, int16_t y, int16_t w, int16_t h);
+void enemyAI(void);
 
 #endif

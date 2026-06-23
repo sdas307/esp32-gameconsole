@@ -18,8 +18,8 @@ extern int16_t hitLevel2;
 extern int16_t levelCount;
 
 /* Ball Functions */
-void ballObject(int16_t, int16_t, int16_t);
-void level2();
-void level3();
+void ballObject(int16_t x, int16_t y, int16_t r);
+void level2(void);
+void level3(void);
 
 #endif

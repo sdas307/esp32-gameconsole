@@ -9,12 +9,12 @@
 
 bool isGameOver = false;
 
-void SnakeInit()
+void SnakeInit(void)
 {
     snake[0] = {64, 32};
 }
 
-void SnakeUpdate()
+void SnakeUpdate(void)
 {
     if (gameState == MAIN_MENU)
     {
@@ -55,7 +55,7 @@ void SnakeUpdate()
     //display.display();
 }
 
-void setSnakeDirection()
+void setSnakeDirection(void)
 {
     if (leftPressed() && direction != RIGHT)
     {
@@ -75,7 +75,7 @@ void setSnakeDirection()
     }
 }
 
-void moveSnake()
+void moveSnake(void)
 {
     // Moves the body and tail
     for (int i = snakeLength-1; i > 0; i--)
@@ -107,7 +107,7 @@ void moveSnake()
     }
 }
 
-void drawSnake()
+void drawSnake(void)
 {
     for (int i = 0; i < snakeLength; i++)
     {
@@ -131,7 +131,7 @@ void drawSnake()
     }
 }
 
-void snakeGrow()
+void snakeGrow(void)
 {
     snake[snakeLength] = snake[snakeLength - 1];
     snakeLength++;
@@ -172,7 +172,7 @@ void getFoodCoords(int16_t &foodX, int16_t &foodY)
     }
 }
 
-void drawFood()
+void drawFood(void)
 {
     if (foodEaten == true)
     {
@@ -189,7 +189,7 @@ void drawFood()
     display.fillCircle(foodX, foodY, foodRadius, DISPLAY_WHITE);
 }
 
-void destroyFood()
+void destroyFood(void)
 {
     if (checkFoodCollision(snake[0].x, snake[0].y, foodX, foodY))
     {
@@ -219,7 +219,7 @@ bool checkFoodCollision(int16_t snakeX, int16_t snakeY, int16_t foodX, int16_t f
     );
 }
 
-bool checkSelfCollision()
+bool checkSelfCollision(void)
 {
     for (int i = 2; i < snakeLength; i++)
     {

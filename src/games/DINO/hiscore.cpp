@@ -3,7 +3,7 @@
 #include "hardware.h"
 #include "input.h"
 
-void hiScore()
+void hiScore(void)
 {
     if (selectPressed())
         dinoGameState = PLAY;

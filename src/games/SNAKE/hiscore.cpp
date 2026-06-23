@@ -2,7 +2,7 @@
 #include "hardware.h"
 #include "gamevariables.h"
 
-void snakeHiScore()
+void snakeHiScore(void)
 {
     display.setTextSize(1);
     display.setTextColor(DISPLAY_WHITE);

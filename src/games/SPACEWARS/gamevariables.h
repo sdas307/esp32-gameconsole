@@ -44,9 +44,6 @@ extern char scoreText[];
 
 /* Function Signatures */
 
-void drawScore();
-void drawGround();
-
 /**
  * Draws the spaceship at its current position.
  @param ship Spaceship to draw
@@ -59,6 +56,6 @@ void drawSpaceship(const Spaceship *ship);
  */
 void spaceshipMove(Spaceship *ship);
 
-bool checkCollision();
+bool checkCollision(void);
 
 #endif

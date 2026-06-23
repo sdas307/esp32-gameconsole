@@ -8,12 +8,14 @@
 
 int16_t cactusAlt = 1;
 
-void DinoInit()
+void DinoInit(void)
 {
     score = 0;
 
-    dinoPosX = 16;
-    dinoPosY = 39;
+    // dinoPosX = 16;
+    // dinoPosY = 39;
+
+    spawnDino();
 
     // cactusSmallPosX = 128;
     // cactusSmallPosY = 43;
@@ -24,7 +26,7 @@ void DinoInit()
     resetCactus();
 }
 
-void DinoUpdate()
+void DinoUpdate(void)
 {
 
     state_change:

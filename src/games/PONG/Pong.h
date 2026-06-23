@@ -2,10 +2,10 @@
 #define PONG_H
 
 /* Function Definitions*/
-void highScore();
+void highScore(void);
 
 // Main Functions
-void PongInit();
-void PongUpdate();
+void PongInit(void);
+void PongUpdate(void);
 
 #endif

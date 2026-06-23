@@ -29,11 +29,6 @@ char spaceWarsScoreText[10];
 
 /* Function Definitions */
 
-void drawSpace()
-{
-    display.drawLine(0, 57, 128, 57, WHITE);
-}
-
 void drawSpaceship(const Spaceship* ship)
 {
     display.drawBitmap(ship->x, ship->y, bitmap_spaceship, 14, 13, WHITE);
@@ -42,36 +37,13 @@ void drawSpaceship(const Spaceship* ship)
 void spaceshipMove(Spaceship* ship)
 {
     if (leftPressed())
-    {
         ship->x -= ship->speed;
-    }
 
     if (rightPressed())
-    {
         ship->x += ship->speed;
-    }
 }
 
-void spaceWarsDrawScore()
-{
-    // unsigned long now = millis();
-
-    // display.setCursor(3, 3);
-    // display.setTextSize(1);
-    // display.setTextColor(WHITE);
-
-    // if (now - spaceWarsLastUpdate >= 100)
-    // {
-    //     spaceWarsScore++;
-    // }
-
-    // // Update scoreText to have a padding of 5 0's
-    // sprintf(spaceWarsScoreText, "%05d", spaceWarsScore);
-
-    // display.print(spaceWarsScoreText);
-}
-
-bool spaceWarsCheckCollision()
+bool spaceWarsCheckCollision(void)
 {
     return false;
 }

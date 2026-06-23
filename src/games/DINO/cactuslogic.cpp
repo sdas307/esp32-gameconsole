@@ -4,29 +4,30 @@
 #include "../../assets/games/dino/dino_sprites.h"
 
 // Cactus Definition
-int16_t cactusSmallPosY = 43;
-int16_t cactusLargePosY = 40;
+const int16_t cactusSmallPosY = 43;
+const int16_t cactusLargePosY = 40;
 
 typedef struct
 {
     int16_t x;
+    int16_t y;
     CactusType type;
     bool active;
 } Cactus;
 
 static Cactus cactus;
 
-void drawCactusSmall(int16_t cactusX)
+static void drawCactusSmall(const Cactus *cactus)
 {
-    display.drawBitmap(cactusX, cactusSmallPosY, bitmap_cactus_small, 8, 14, DISPLAY_WHITE);
+    display.drawBitmap(cactus->x, cactus->y, bitmap_cactus_small, 8, 14, DISPLAY_WHITE);
 }
 
-void drawCactusLarge(int16_t cactusX)
+static void drawCactusLarge(const Cactus *cactus)
 {
-    display.drawBitmap(cactusX, cactusLargePosY, bitmap_cactus_large, 8, 17, DISPLAY_WHITE);
+    display.drawBitmap(cactus->x, cactus->y, bitmap_cactus_large, 8, 17, DISPLAY_WHITE);
 }
 
-void drawCactus()
+void drawCactus(void)
 {
     if (!cactus.active)
         return;
@@ -34,46 +35,47 @@ void drawCactus()
     switch (cactus.type)
     {
         case CACTUS_SMALL:
-            drawCactusSmall(cactus.x);
+            drawCactusSmall(&cactus);
             break;
 
         case CACTUS_LARGE:
-            drawCactusLarge(cactus.x);
+            drawCactusLarge(&cactus);
+            break;
+    }
+}
+CactusType randomCactusType(void)
+{
+    long r = random(0, 100);
+    if (r < 70)
+        return CACTUS_SMALL;
+    else
+        return CACTUS_LARGE;
+}
+
+static void spawnCactus(Cactus *cactus)
+{
+    // gap-based spawn
+    cactus->x = SCREEN_WIDTH + random(-24, 16);
+    cactus->active = true;
+
+    cactus->type = randomCactusType();
+
+    switch (cactus->type)
+    {
+        case CACTUS_SMALL:
+            cactus->y = 43;
+            break;
+        case CACTUS_LARGE:
+            cactus->y = 40;
             break;
     }
 }
 
-void spawnCactus()
-{
-    // gap-based spawn
-    cactus.x = 128 + random(-24, 16);
-    cactus.active = true;
-
-    int16_t r = random(0, 100);
-    if (r < 70)
-        cactus.type = CACTUS_SMALL;
-    else
-        cactus.type = CACTUS_LARGE;
-}
-
-// int16_t cactusSizeProbabilityGenerator()
-// {
-//     cactusSizeProbability = random(pMin, pMax+1);
-
-//     return cactusSizeProbability;
-// }
-// int16_t cactusSpawnProbabilityGenerator()
-// {
-//     cactusSpawnProbability = random(pMin, pMax+1);
-
-//     return cactusSpawnProbability;
-// }
-
-void updateCactus()
+void updateCactus(void)
 {
     if (!cactus.active)
     {
-        spawnCactus();
+        spawnCactus(&cactus);
         return;
     }
         
@@ -82,11 +84,11 @@ void updateCactus()
     if (cactus.x < -8)   // fully off-screen with extra padding
     {
         cactus.active = false;
-        spawnCactus();
+        spawnCactus(&cactus);
     }
 }
 
-void resetCactus()
+void resetCactus(void)
 {
     cactus.x = 128;
     cactus.active = false;

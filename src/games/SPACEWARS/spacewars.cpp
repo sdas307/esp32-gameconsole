@@ -5,14 +5,14 @@
 #include "mainmenu.h"
 #include "hiscore.h"
 
-void SpaceWarsInit()
+void SpaceWarsInit(void)
 {
     spaceship.x = (SCREEN_WIDTH / 2) - SPACESHIP_WIDTH;
     spaceship.y = (SCREEN_HEIGHT - SPACESHIP_HEIGHT) - 4;
     spaceship.speed = 2;
 }
 
-void SpaceWarsUpdate()
+void SpaceWarsUpdate(void)
 {
     switch (spaceWarsGameState)
     {

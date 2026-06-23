@@ -1,4 +1,4 @@
 
 
-void SpaceWarsInit();
-void SpaceWarsUpdate();
+void SpaceWarsInit(void);
+void SpaceWarsUpdate(void);

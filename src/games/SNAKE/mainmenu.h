@@ -7,6 +7,6 @@
 extern int16_t snakeAlt;
 extern unsigned long snakeLastDebounceTime;
 
-void snakeMainMenu();
+void snakeMainMenu(void);
 
 #endif

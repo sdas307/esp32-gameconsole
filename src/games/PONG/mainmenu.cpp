@@ -2,7 +2,7 @@
 #include "hardware.h"
 #include "input.h"
 
-void pongMainMenu()
+void pongMainMenu(void)
 {
     display.drawRect(0, 0, 128, 64, 1);
 

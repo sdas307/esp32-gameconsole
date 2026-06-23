@@ -5,7 +5,7 @@
 #include "gamevariables.h"
 #include "mainmenu.h"
  
-void snakeMainMenu()
+void snakeMainMenu(void)
 {
     display.setTextSize(1);
     display.setTextColor(DISPLAY_WHITE);

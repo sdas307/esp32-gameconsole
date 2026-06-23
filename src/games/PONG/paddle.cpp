@@ -29,7 +29,7 @@ void enemyPaddle(int16_t x, int16_t y, int16_t w, int16_t h)
   display.fillRect(x, y, w, h, 1);
 }
 
-void enemyAI()
+void enemyAI(void)
 {
   /* The idea is to try to match the ball's Y coord, with the center of the paddle
    enemyY -= paddleSpeed, when the ball is in enemy court until ballY is reached...

@@ -7,6 +7,6 @@
 extern int16_t dinoAlt;
 extern unsigned long dinoLastDebounceTime;
 
-void snakeMainMenu();
+void dinoMainMenu(void);
 
 #endif

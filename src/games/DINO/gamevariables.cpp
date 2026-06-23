@@ -18,7 +18,27 @@ DinoY = 39
   __________________Ground (AbsoluteValue) = (DinoY + DinoHeight)
 */
 
+typedef struct
+{
+    float x;
+    float y;
+    float velocity;
+    float jumpStrength;
+    float gravity;
+} Dino;
+
+static Dino dino =
+{
+    .x = 16,
+    .y = 39,
+    .velocity = 0,
+    .jumpStrength = 8,
+    .gravity = 1.1
+};
+
+
 /* Dino Initial Position */
+
 float dinoPosX = 16;
 float dinoPosY = 39;
 float dinoVelY = 0;
@@ -33,57 +53,65 @@ char scoreText[10];
 
 /* Function Definitions */
 
-void drawGround()
+void drawGround(void)
 {
     display.drawLine(0, 57, 128, 57, WHITE);
 }
-
-void drawDino()
+void spawnDino()
 {
-    if (dinoPosY != groundLevel)
-        display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino0, 16, 18, WHITE);
+    dino.x = 16;
+    dino.y = 39;
+    dino.velocity = 0;
+    dino.jumpStrength = 8;
+    dino.gravity = 1.1;
+}
+
+void drawDino(void)
+{
+    if (dino.y != groundLevel)
+        display.drawBitmap(dino.x, dino.y, bitmap_dino0, 16, 18, WHITE);
     else
     {
         if (dinoFrameAlt == 1)
         {
-            display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino1, 16, 18, WHITE);
+            display.drawBitmap(dino.x, dino.y, bitmap_dino1, 16, 18, WHITE);
             dinoFrameAlt *= -1;
         }
 
         else if (dinoFrameAlt == -1)
         {
-            display.drawBitmap(dinoPosX, dinoPosY, bitmap_dino2, 16, 18, WHITE);
+            display.drawBitmap(dino.x, dino.y, bitmap_dino2, 16, 18, WHITE);
             dinoFrameAlt *= -1;
         }
     }
 }
 
-void dinoMove()
+void dinoMove(void)
 {
-    if (upPressed() && dinoPosY == groundLevel)
+    if (upPressed() && dino.y == groundLevel)
     {
-        dinoVelY = -(jumpStrength);
+        dino.velocity = -(dino.jumpStrength);
     }
 
-    if (downPressed() && dinoPosY != groundLevel)
+    if (downPressed() && dino.y != groundLevel)
     {
-        dinoVelY = jumpStrength;
+        dino.velocity = dino.jumpStrength;
     }
     
-    dinoVelY += gravity;
+    dino.velocity += dino.gravity;
 
-    dinoPosY += dinoVelY;
+    dino.y += dino.velocity;
 
     /* Clamp Dino on the ground upon feet touching */
-    if (dinoPosY >= groundLevel)
+    if (dino.y >= groundLevel)
     {
-        dinoPosY = groundLevel;
-        dinoVelY = 0;
+        dino.y = groundLevel;
+        dino.velocity = 0;
     }
 
 }
 
-void drawScore()
+void drawScore(void)
 {
     unsigned long now = millis();
 
@@ -103,12 +131,12 @@ void drawScore()
     display.print(scoreText);
 }
 
-bool checkCollision()
+bool checkCollision(void)
 {
-    int16_t dinoFeetX = dinoPosX + 8;
-    int16_t dinoFeetY = dinoPosY + 18;
-    int16_t dinoFaceX = dinoPosX + 16;
-    int16_t dinoFaceY = dinoPosY;
+    int16_t dinoFeetX = dino.x + 8;
+    int16_t dinoFeetY = dino.y + 18;
+    int16_t dinoFaceX = dino.x + 16;
+    int16_t dinoFaceY = dino.y;
 
     if (!cactusIsActive())
         return false;

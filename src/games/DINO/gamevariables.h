@@ -28,10 +28,13 @@ extern uint16_t score;
 extern char scoreText[];
 
 /* Function Signatures */
-void drawScore();
-void drawGround();
-void drawDino();
-void dinoMove();
-bool checkCollision();
+
+void spawnDino(void);
+
+void drawScore(void);
+void drawGround(void);
+void drawDino(void);
+void dinoMove(void);
+bool checkCollision(void);
 
 #endif

@@ -23,7 +23,7 @@ int16_t pongAlt = 1;
 /* Button variables*/
 unsigned long lastDebounceTime = 0;
 
-void dividerLines()
+void dividerLines(void)
 {
   for (int y=0; y<=SCREEN_HEIGHT; y+=2)
   {

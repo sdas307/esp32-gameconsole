@@ -22,6 +22,6 @@ extern int16_t pongAlt;
 extern unsigned long lastDebounceTime;
 
 /* Game Functions*/
-void dividerLines();
+void dividerLines(void);
 
 #endif

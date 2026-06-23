@@ -11,7 +11,7 @@
 #include "mainmenu.h"
 #include "Pong.h"
 
-void PongInit()
+void PongInit(void)
 {
   // Reset ball
   ballX = 62;
@@ -29,7 +29,7 @@ void PongInit()
   levelCount = 1;
 }
 
-void PongUpdate()
+void PongUpdate(void)
 {
   //display.clearDisplay();
 
