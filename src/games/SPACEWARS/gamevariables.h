@@ -48,7 +48,6 @@ extern char scoreText[];
 void drawScreenBoundary(void);
 
 void enemyMove(Spaceship *enemy);
-void drawEnemy(Spaceship *enemy);
 
 /**
  * Draws the spaceship at its current position.

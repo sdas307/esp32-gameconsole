@@ -19,7 +19,7 @@ void SpaceWarsUpdate(void)
     case PLAY:
         drawScreenBoundary();
         enemyMove(&enemy);
-        drawEnemy(&enemy);
+        drawSpaceship(&enemy);
         spaceshipMove(&spaceship);
         drawSpaceship(&spaceship);
         break;

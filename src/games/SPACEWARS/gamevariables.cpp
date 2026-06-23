@@ -53,11 +53,6 @@ void enemyMove(Spaceship *enemy)
     enemy->x += enemy->speed;
 }
 
-void drawEnemy(Spaceship *enemy)
-{
-    display.fillCircle(enemy->x, enemy->y, 2, WHITE);
-}
-
 bool spaceWarsCheckCollision(void)
 {
     return false;
