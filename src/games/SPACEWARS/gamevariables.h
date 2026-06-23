@@ -20,6 +20,7 @@ typedef struct
 } Spaceship;
 
 extern Spaceship spaceship;
+extern Spaceship enemy;
 
 /* Enum Definitions */
 
@@ -44,6 +45,11 @@ extern char scoreText[];
 
 /* Function Signatures */
 
+void drawScreenBoundary(void);
+
+void enemyMove(Spaceship *enemy);
+void drawEnemy(Spaceship *enemy);
+
 /**
  * Draws the spaceship at its current position.
  @param ship Spaceship to draw
@@ -52,6 +58,7 @@ void drawSpaceship(const Spaceship *ship);
 
 /**
  * Updates the spaceship's position (x values).
+ * Ensures the ship statys inside the screen.
  @param ship Spaceship to update
  */
 void spaceshipMove(Spaceship *ship);

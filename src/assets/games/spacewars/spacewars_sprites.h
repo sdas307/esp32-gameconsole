@@ -3,8 +3,8 @@
 
 #include <Arduino.h>
 
-#define BITMAP_SPACESHIP_WIDTH 13
-#define BITMAP_SPACESHIP_HEIGHT 14
+#define BITMAP_SPACESHIP_WIDTH 14
+#define BITMAP_SPACESHIP_HEIGHT 13
 
 extern const uint8_t PROGMEM bitmap_spaceship[];
 

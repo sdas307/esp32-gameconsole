@@ -11,15 +11,15 @@ Spaceship spaceship =
 {
     .x = (SCREEN_WIDTH/2) - BITMAP_SPACESHIP_WIDTH,
     .y = (SCREEN_HEIGHT - BITMAP_SPACESHIP_HEIGHT) - 1,
-    .speed = 2
+    .speed = 3
 };
 
-// /* Spaceship Initial Position */
-// float spaceshipPosX = (SCREEN_WIDTH/2) - BITMAP_SPACESHIP_WIDTH;
-// float spaceshipPosY = (SCREEN_HEIGHT - BITMAP_SPACESHIP_HEIGHT) - 1;
-// float spaceshipVelX = 0;
-// float spaceshipMoveStrength = 2;
-
+Spaceship enemy =
+{
+    .x = 4,
+    .y = 2,
+    .speed = 2
+};
 
 int16_t spaceWarsgameSpeed = 5;
 unsigned long spaceWarsLastUpdate = 0;
@@ -27,20 +27,35 @@ unsigned long spaceWarsLastUpdate = 0;
 uint16_t spaceWarsScore = 0;
 char spaceWarsScoreText[10];
 
-/* Function Definitions */
+void drawScreenBoundary(void)
+{
+    display.drawRect(0, 0, 128, 64, WHITE);
+}
 
 void drawSpaceship(const Spaceship* ship)
 {
     display.drawBitmap(ship->x, ship->y, bitmap_spaceship, 14, 13, WHITE);
 }
 
-void spaceshipMove(Spaceship* ship)
+void spaceshipMove(Spaceship *ship)
 {
-    if (leftPressed())
+    // If left button pressed and ship is not going outside the screen on the left
+    if (leftPressed() && (ship->x >= 3))
         ship->x -= ship->speed;
 
-    if (rightPressed())
+    // If right button pressed and ship is not going outside the screen on the right
+    if (rightPressed() && (ship->x + BITMAP_SPACESHIP_WIDTH) <= (SCREEN_WIDTH - 2))
         ship->x += ship->speed;
+}
+
+void enemyMove(Spaceship *enemy)
+{
+    enemy->x += enemy->speed;
+}
+
+void drawEnemy(Spaceship *enemy)
+{
+    display.fillCircle(enemy->x, enemy->y, 2, WHITE);
 }
 
 bool spaceWarsCheckCollision(void)

@@ -4,4 +4,4 @@
 extern int16_t spaceWarsAlt;
 extern unsigned long spaceWarsLastDebounceTime;
 
-void spaceWarsMainMenu();
+void spaceWarsMainMenu(void);

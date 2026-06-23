@@ -5,7 +5,7 @@
 #include "gamevariables.h"
 #include "mainmenu.h"
  
-void spaceWarsMainMenu()
+void spaceWarsMainMenu(void)
 {
     display.setTextSize(1);
     display.setTextColor(DISPLAY_WHITE);

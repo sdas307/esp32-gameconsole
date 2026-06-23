@@ -17,6 +17,9 @@ void SpaceWarsUpdate(void)
     switch (spaceWarsGameState)
     {
     case PLAY:
+        drawScreenBoundary();
+        enemyMove(&enemy);
+        drawEnemy(&enemy);
         spaceshipMove(&spaceship);
         drawSpaceship(&spaceship);
         break;
