@@ -1,14 +1,4 @@
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Arduino.h>
-#include "hardware.h"
-#include "display.h"
-#include "input/input.h"
-#include "managers/manager.h"
-#include "managers/home_manager.h"
-#include "managers/game_manager.h"
-#include "managers/settings_manager.h"
-#include "assets/game icons/game_icons.h"
+#include "game_console.h"
 
 void setup()
 {
@@ -27,7 +17,7 @@ void loop()
   switch (currentState)
   {
   case STATE_HOME:
-    HomeManager(); // Has internal display.display()??
+    HomeManager();
     break;
 
   case STATE_GAME:
