@@ -1,5 +1,5 @@
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 #include "manager.h"
 
 void SettingsManager(void)

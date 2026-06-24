@@ -1,6 +1,6 @@
 #include <Adafruit_GFX.h>
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 #include "gamevariables.h"
 #include "spaceship.h"
 #include "enemy.h"

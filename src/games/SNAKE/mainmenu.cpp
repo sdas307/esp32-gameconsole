@@ -1,7 +1,7 @@
 #include <Adafruit_GFX.h>
 #include <stdint.h>
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 #include "gamevariables.h"
 #include "mainmenu.h"
  

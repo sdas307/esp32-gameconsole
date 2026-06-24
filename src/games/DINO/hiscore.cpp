@@ -1,7 +1,7 @@
 #include "hiscore.h"
 #include "gamevariables.h"
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 
 void hiScore(void)
 {

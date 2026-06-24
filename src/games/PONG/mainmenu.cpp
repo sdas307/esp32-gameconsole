@@ -1,6 +1,6 @@
 #include "gamevariables.h"
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 
 void pongMainMenu(void)
 {

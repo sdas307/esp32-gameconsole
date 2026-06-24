@@ -3,11 +3,11 @@
 #include <Arduino.h>
 #include "hardware.h"
 #include "display.h"
-#include "input.h"
-#include "manager.h"
-#include "home_manager.h"
-#include "game_manager.h"
-#include "settings_manager.h"
+#include "input/input.h"
+#include "managers/manager.h"
+#include "managers/home_manager.h"
+#include "managers/game_manager.h"
+#include "managers/settings_manager.h"
 #include "assets/game icons/game_icons.h"
 
 void setup()

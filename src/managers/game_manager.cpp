@@ -1,5 +1,5 @@
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 #include "manager.h"
 #include "assets/game icons/game_icons.h"
 #include "games/PONG/Pong.h"

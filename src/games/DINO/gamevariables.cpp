@@ -1,6 +1,6 @@
 #include "gamevariables.h"
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 #include "cactuslogic.h"
 #include "../../assets/games/dino/dino_sprites.h"
 

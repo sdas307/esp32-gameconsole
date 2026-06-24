@@ -1,6 +1,6 @@
 #include "gamevariables.h"
 #include "hardware.h"
-#include "input.h"
+#include "input/input.h"
 #include "../../assets/games/spacewars/spacewars_sprites.h"
 
 SPACEWARS_GAME_STATE spaceWarsGameState;

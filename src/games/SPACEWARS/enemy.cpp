@@ -1,6 +1,5 @@
 #include "gamevariables.h"
 #include "hardware.h"
-#include "input.h"
 #include "../../assets/games/spacewars/spacewars_sprites.h"
 
 Spaceship enemy =
