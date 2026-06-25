@@ -13,9 +13,49 @@ const uint8_t PROGMEM bitmap_enemy[] = {
 
 // 'bitmap_jango0', 9x7px
 const uint8_t PROGMEM bitmap_jango0[] = {
-	0x1c, 0x00, 0xbe, 0x80, 0xff, 0x80, 0x3e, 0x00, 0x1c, 0x00, 0x36, 0x00, 0x41, 0x00
+	0x1c, 0x00, 0xbe, 0x80, 0xff, 0x80, 0x3e, 0x00, 0x1c, 0x00, 0x36, 0x00, 0x22, 0x00
 };
+
 // 'bitmap_jango1', 9x7px
 const uint8_t PROGMEM bitmap_jango1[] = {
-	0x1c, 0x00, 0x3e, 0x00, 0xff, 0x80, 0xbe, 0x80, 0x1c, 0x00, 0x36, 0x00, 0x22, 0x00
+	0x1c, 0x00, 0x3e, 0x00, 0xff, 0x80, 0xbe, 0x80, 0x1c, 0x00, 0x77, 0x00, 0x00, 0x00
 };
+
+// ---------- Array of Sprites to use uniformly in drawBitmap function ----------
+
+
+// ---------- Collection of Jango sprite(s) ----------
+const uint8_t* const bitmap_JangoSprites[] =
+{
+    bitmap_jango0,
+    bitmap_jango1
+};
+
+const uint8_t bitmap_JangoSprites_LEN =
+    sizeof(bitmap_JangoSprites) / sizeof(bitmap_JangoSprites[0]);
+
+// ------------------------------------------------------------
+
+
+// ---------- Collection of Enemy sprite(s) ----------
+const uint8_t* const bitmap_EnemySprites[] =
+{
+    bitmap_enemy
+};
+
+const uint8_t bitmap_EnemySprites_LEN =
+    sizeof(bitmap_EnemySprites) / sizeof(bitmap_EnemySprites[0]);
+
+// ------------------------------------------------------------
+
+
+// ---------- Collection of Spaceship sprite(s) ----------
+const uint8_t* const bitmap_SpaceshipSprites[] =
+{
+    bitmap_spaceship
+};
+
+const uint8_t bitmap_SpaceshipSprites_LEN =
+    sizeof(bitmap_SpaceshipSprites) / sizeof(bitmap_SpaceshipSprites[0]);
+
+// ------------------------------------------------------------

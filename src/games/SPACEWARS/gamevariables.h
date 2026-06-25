@@ -7,8 +7,26 @@
 #define SPACESHIP_HEIGHT 14
 
 /** Represents a Spaceship. */
-typedef struct
+typedef struct Sprite
 {
+    /** Spriteset of the spaceship. */
+    const uint8_t* const* sprites;
+
+    /** Total sprites in the spriteset. */
+    const uint8_t spriteCount;
+
+    /** Index of the sprite to draw. */
+    uint8_t spriteIndex;
+
+    /** To be used to update sprite based on time passed. */
+    unsigned long lastFrameTime;
+
+    /** Width of the spaceship in pixels. */
+    uint8_t width;
+
+    /** Height of the spaceship in pixels. */
+    uint8_t height;
+
     /** X position of the spaceship in pixels. */
     int16_t x;
 
@@ -21,10 +39,11 @@ typedef struct
 
     /** Horizontal movement speed in pixels per update. */
     int16_t speed;
-} Spaceship;
+} Sprite;
 
-extern Spaceship spaceship;
-extern Spaceship enemy;
+extern Sprite Spaceship;
+extern Sprite Enemy;
+extern Sprite Jango;
 
 /* Enum Definitions */
 
@@ -50,6 +69,17 @@ extern char scoreText[];
  * Draw screen boundary (Rectangle - Screen Width x Screen Height).
  */
 void drawScreenBoundary(void);
+
+/** Draw sprite at its current position.
+ * @param sprite Sprite to draw.
+ */
+void drawSprite(const Sprite *sprite);
+
+/** Update sprite based on time passed.
+ * @param sprite Sprite to update.
+ * @param duration Duration to update after.
+ */
+void spriteUpdate(Sprite *sprite, uint16_t duration);
 
 bool checkCollision(void);
 

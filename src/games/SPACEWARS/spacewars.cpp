@@ -9,9 +9,9 @@
 
 void SpaceWarsInit(void)
 {
-    spaceship.x = (SCREEN_WIDTH / 2) - SPACESHIP_WIDTH;
-    spaceship.y = (SCREEN_HEIGHT - SPACESHIP_HEIGHT) - 4;
-    spaceship.speed = 2;
+    Spaceship.x = (SCREEN_WIDTH / 2) - SPACESHIP_WIDTH;
+    Spaceship.y = (SCREEN_HEIGHT - SPACESHIP_HEIGHT) - 4;
+    Spaceship.speed = 2;
 }
 
 void SpaceWarsUpdate(void)
@@ -20,10 +20,12 @@ void SpaceWarsUpdate(void)
     {
     case SPACEWARS_PLAY:
         drawScreenBoundary();
-        drawSpaceship(&spaceship);
-        spaceshipMove(&spaceship);
-        drawEnemy(&enemy);
-        enemyMove(&enemy);
+
+        drawSprite(&Spaceship);
+        spaceshipMove(&Spaceship);
+
+        drawSprite(&Jango);
+        enemyMove(&Jango);
         break;
 
     case SPACEWARS_HI_SCORE:

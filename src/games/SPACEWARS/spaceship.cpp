@@ -3,19 +3,20 @@
 #include "input/input.h"
 #include "../../assets/games/spacewars/spacewars_sprites.h"
 
-Spaceship spaceship =
+Sprite Spaceship =
 {
+    .sprites = bitmap_SpaceshipSprites,
+    .spriteCount = bitmap_SpaceshipSprites_LEN,
+    .spriteIndex = 0,
+    .lastFrameTime = 0,
+    .width = 13,
+    .height = 13,
     .x = (SCREEN_WIDTH - BITMAP_SPACESHIP_WIDTH) / 2,
     .y = (SCREEN_HEIGHT - BITMAP_SPACESHIP_HEIGHT) - 1,
     .speed = 3
 };
 
-void drawSpaceship(const Spaceship* ship)
-{
-    display.drawBitmap(ship->x, ship->y, bitmap_spaceship, 13, 13, WHITE);
-}
-
-void spaceshipMove(Spaceship *ship)
+void spaceshipMove(Sprite *ship)
 {
     // When no input -> ship is stationary
     ship->direction = 0;

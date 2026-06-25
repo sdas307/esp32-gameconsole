@@ -18,6 +18,29 @@ void drawScreenBoundary(void)
     display.drawRect(0, 0, 128, 64, WHITE);
 }
 
+void drawSprite(const Sprite *sprite)
+{
+    display.drawBitmap(sprite->x, sprite->y, sprite->sprites[sprite->spriteIndex], sprite->width, sprite->height, WHITE);
+}
+
+void spriteUpdate(Sprite *sprite, uint16_t duration)
+{
+    if (sprite->spriteCount > 1)
+    {
+        unsigned long currentTime = millis();
+
+        if ((currentTime - sprite->lastFrameTime) >= duration)
+        {
+            sprite->spriteIndex++;
+            sprite->lastFrameTime = currentTime;
+        }
+
+        if (sprite->spriteIndex >= sprite->spriteCount)
+            sprite->spriteIndex = 0;
+
+    }
+}
+
 bool spaceWarsCheckCollision(void)
 {
     return false;
