@@ -6,7 +6,7 @@
 #define SPACESHIP_WIDTH 13
 #define SPACESHIP_HEIGHT 14
 
-/** Represents a Spaceship. */
+/** Represents a Sprite. */
 typedef struct Sprite
 {
     /** Spriteset of the spaceship. */
@@ -41,9 +41,10 @@ typedef struct Sprite
     int16_t speed;
 } Sprite;
 
-extern Sprite Spaceship;
+// extern Sprite Spaceship;
 extern Sprite Enemy;
 extern Sprite Jango;
+extern Sprite Jango1;
 
 /* Enum Definitions */
 

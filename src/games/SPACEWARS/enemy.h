@@ -10,4 +10,6 @@
  */
 void enemyMove(Sprite *enemy);
 
+extern Sprite JangoArmy[];
+
 #endif

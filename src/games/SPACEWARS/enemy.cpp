@@ -26,9 +26,67 @@ Sprite Jango =
     .height = 7,
     .x = 4,
     .y = 2,
+    .direction = -1,
+    .speed = 2
+};
+
+Sprite Jango1 =
+{
+    .sprites = bitmap_JangoSprites,
+    .spriteCount = bitmap_JangoSprites_LEN,
+    .spriteIndex = 0,
+    .lastFrameTime = 0,
+    .width = 9,
+    .height = 7,
+    .x = 124,
+    .y = 2 + 10,
     .direction = 1,
     .speed = 2
 };
+
+Sprite Jango2 =
+{
+    .sprites = bitmap_JangoSprites,
+    .spriteCount = bitmap_JangoSprites_LEN,
+    .spriteIndex = 0,
+    .lastFrameTime = 0,
+    .width = 9,
+    .height = 7,
+    .x = 114,
+    .y = 2 + 20,
+    .direction = 1,
+    .speed = 2
+};
+
+Sprite Jango3 =
+{
+    .sprites = bitmap_JangoSprites,
+    .spriteCount = bitmap_JangoSprites_LEN,
+    .spriteIndex = 0,
+    .lastFrameTime = 0,
+    .width = 9,
+    .height = 7,
+    .x = 104,
+    .y = 2 + 30,
+    .direction = -1,
+    .speed = 2
+};
+
+Sprite Jango4 =
+{
+    .sprites = bitmap_JangoSprites,
+    .spriteCount = bitmap_JangoSprites_LEN,
+    .spriteIndex = 0,
+    .lastFrameTime = 0,
+    .width = 9,
+    .height = 7,
+    .x = 94,
+    .y = 2,
+    .direction = -1,
+    .speed = 2
+};
+
+Sprite JangoArmy[] = {Jango1, Jango2, Jango3, Jango4};
 
 void enemyMove(Sprite *enemy)
 {
