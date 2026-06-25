@@ -12,7 +12,7 @@ Spaceship spaceship =
 
 void drawSpaceship(const Spaceship* ship)
 {
-    display.drawBitmap(ship->x, ship->y, bitmap_spaceship, 14, 13, WHITE);
+    display.drawBitmap(ship->x, ship->y, bitmap_spaceship, 13, 13, WHITE);
 }
 
 void spaceshipMove(Spaceship *ship)

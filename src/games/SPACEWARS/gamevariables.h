@@ -6,7 +6,7 @@
 #define SPACESHIP_WIDTH 13
 #define SPACESHIP_HEIGHT 14
 
-/** Represents a Spaceship object. */
+/** Represents a Spaceship. */
 typedef struct
 {
     /** X position of the spaceship in pixels. */
@@ -14,6 +14,9 @@ typedef struct
 
     /** Y position of the spaceship in pixels. */
     int16_t y;
+
+    /** Direction of movement. */
+    int8_t direction;
 
     /** Horizontal movement speed in pixels per update. */
     int16_t speed;

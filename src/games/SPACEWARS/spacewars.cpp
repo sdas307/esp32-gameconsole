@@ -20,10 +20,10 @@ void SpaceWarsUpdate(void)
     {
     case SPACEWARS_PLAY:
         drawScreenBoundary();
-        enemyMove(&enemy);
-        drawSpaceship(&enemy);
-        spaceshipMove(&spaceship);
         drawSpaceship(&spaceship);
+        spaceshipMove(&spaceship);
+        drawEnemy(&enemy);
+        enemyMove(&enemy);
         break;
 
     case SPACEWARS_HI_SCORE:
