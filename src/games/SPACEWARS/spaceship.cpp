@@ -17,11 +17,31 @@ void drawSpaceship(const Spaceship* ship)
 
 void spaceshipMove(Spaceship *ship)
 {
-    // If left button pressed and ship is not going outside the screen on the left
-    if (leftPressed() && (ship->x >= 3))
-        ship->x -= ship->speed;
+    // When no input -> ship is stationary
+    ship->direction = 0;
 
-    // If right button pressed and ship is not going outside the screen on the right
-    if (rightPressed() && (ship->x + BITMAP_SPACESHIP_WIDTH) <= (SCREEN_WIDTH - 2))
-        ship->x += ship->speed;
+    if (leftPressed())
+    {
+        ship->direction = -1;
+    }
+
+    if (rightPressed())
+    {
+        ship->direction = 1;
+    }
+
+    // Move ship
+    ship->x += ship->speed * ship->direction;
+
+    // Clamp to the left boundary line
+    if (ship->x < 1)
+    {
+        ship->x = 1;
+    }
+
+    // Clamp to the right boundary line
+    if (ship->x > SCREEN_WIDTH - BITMAP_SPACESHIP_WIDTH - 1)
+    {
+        ship->x = (SCREEN_WIDTH - BITMAP_SPACESHIP_WIDTH - 1);
+    }
 }

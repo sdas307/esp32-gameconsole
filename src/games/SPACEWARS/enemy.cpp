@@ -17,11 +17,14 @@ void drawEnemy(const Spaceship* enemy)
 
 void enemyMove(Spaceship *enemy)
 {
-    if ((enemy->x + BITMAP_ENEMY_WIDTH) >= SCREEN_WIDTH)
+    // Enemy touches right boundary line
+    if ((enemy->x + BITMAP_ENEMY_WIDTH) >= (SCREEN_WIDTH - 1))
     {
         enemy->direction = -1;
     }
-    if (enemy->x <= 0)
+    
+    // Enemy touches left boundary line
+    if (enemy->x <= 1)
     {
         enemy->direction = 1;
     }

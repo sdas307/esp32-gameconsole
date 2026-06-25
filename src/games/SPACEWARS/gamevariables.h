@@ -15,7 +15,8 @@ typedef struct
     /** Y position of the spaceship in pixels. */
     int16_t y;
 
-    /** Direction of movement. */
+    /** Horizontal movement direction
+     * (-1 = left, 1 = right). */
     int8_t direction;
 
     /** Horizontal movement speed in pixels per update. */
@@ -41,15 +42,9 @@ extern SPACEWARS_GAME_STATE spaceWarsGameState;
 
 extern float bottomPadding;
 
-// extern float spaceshipPosX;
-// extern float spaceshipPosY;
-// extern float spaceshipVelX;
-// extern float jumpStrength;
-
 extern int16_t gameSpeed;
 extern uint16_t score;
 extern char scoreText[];
-
 
 /**
  * Draw screen boundary (Rectangle - Screen Width x Screen Height).
