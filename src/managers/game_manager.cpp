@@ -29,17 +29,21 @@ static GameManagerState gameManagerState = {.notSelected = true};
 // An alias for gameManagerState
 static GameManagerState &gms = gameManagerState;
 
-bool leftJustPressed(void);
-bool rightJustPressed(void);
+static bool leftJustPressed(void);
+static bool rightJustPressed(void);
+static void drawIconDino();
+static void drawIconPong();
+static void drawIconSnake();
+static void drawIconSpaceWars();
 
 void GameManager(void)
 {
   if (gameManagerState.notSelected)
   {
     // Show Game Icons
-    display.drawBitmap(10, 11, bitmap_games_icon[0], 28, 36, DISPLAY_WHITE);
-    display.drawBitmap(50, 11, bitmap_games_icon[1], 28, 36, DISPLAY_WHITE);
-    display.drawBitmap(90, 11, bitmap_games_icon[2], 28, 36, DISPLAY_WHITE);
+    drawIconDino();
+    drawIconPong();
+    drawIconSnake();
     display.drawBitmap(1, 18, bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
     display.drawBitmap(SCREEN_WIDTH - 1 - 7, 18, bitmap_right_slider_arrow, 7, 14, DISPLAY_WHITE);
 
@@ -71,7 +75,7 @@ void GameManager(void)
     if (gms.selected == 3)
     {
       display.clearDisplay();
-      display.drawBitmap(10, 11, bitmap_space_wars_icon, 28, 36, DISPLAY_WHITE);
+      drawIconSpaceWars();
       display.drawBitmap(1, 18, bitmap_left_slider_arrow, 7, 14, DISPLAY_WHITE);
     }
 
@@ -148,12 +152,33 @@ void GameManager(void)
   }
 }
 
-bool leftJustPressed(void)
+static bool leftJustPressed(void)
 {
   return (gms.currLeftPressed && !gms.prevLeftPressed);
 }
 
-bool rightJustPressed(void)
+static bool rightJustPressed(void)
 {
   return (gms.currRightPressed && !gms.prevRightPressed);
+}
+
+static void drawIconDino()
+{
+    display.drawBitmap(10, 11, bitmap_games_icon[0], 28, 36, DISPLAY_WHITE);
+    
+}
+
+static void drawIconPong()
+{
+    display.drawBitmap(50, 11, bitmap_games_icon[1], 28, 36, DISPLAY_WHITE);
+}
+    
+static void drawIconSnake()
+{
+    display.drawBitmap(90, 11, bitmap_games_icon[2], 28, 36, DISPLAY_WHITE);
+}
+
+static void drawIconSpaceWars()
+{
+    display.drawBitmap(10, 11, bitmap_space_wars_icon, 28, 36, DISPLAY_WHITE);
 }

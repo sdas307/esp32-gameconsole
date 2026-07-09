@@ -13,6 +13,7 @@ typedef struct
     int16_t y;
     CactusType type;
     bool active;
+    
 } Cactus;
 
 static Cactus cactus;

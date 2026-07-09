@@ -12,7 +12,6 @@ extern int16_t ballVelY;
 
 /* Collision Count */
 extern int16_t hitCounter;
-extern int16_t playerScore;
 extern int16_t hitLevel1;
 extern int16_t hitLevel2;
 extern int16_t levelCount;

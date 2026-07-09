@@ -25,6 +25,7 @@ typedef struct
     float velocity;
     float jumpStrength;
     float gravity;
+    
 } Dino;
 
 static Dino dino =

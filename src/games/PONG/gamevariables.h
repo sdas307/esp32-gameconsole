@@ -22,6 +22,7 @@ enum PONG_GAME_STATE
 /* Game variables*/
 
 extern PONG_GAME_STATE pongGameState;
+extern int16_t playerScore;
 extern bool toDelay;
 extern int16_t pongAlt;
 
@@ -31,6 +32,7 @@ extern int16_t pongAlt;
 extern unsigned long lastDebounceTime;
 
 /* Game Functions*/
+
 void dividerLines(void);
 
 #endif
